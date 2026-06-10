@@ -91,6 +91,21 @@ if astralane_shred_was_a_source_signal() {
 
 In that case you will pay tips only if shreds delivery was useful for you.
 
+#### Tip endpoint
+
+Send your tip-carrying transactions to the **shredpay endpoint**:
+
+{% embed url="https://edge.astralane.io/shredpay?api-key=xxxx" %}
+
+#### Tipping Address
+
+
+
+* ASTZHptaMgYVMX6DAocDr1vVXLran5PpfKfQtVTSWkfE
+* AStZiY6EE532nQBBogmvcWemc2bwg2kHuR4Jrd5Cqaq5
+* AStzprSDj14m1pdMuuomjLQwUL5X4d4yEKwiFfzfUSeC
+* ASTzWqJ1irGmrWZAkc1UUfVYbJknsxh7R3Jo4jYZ7Mbd
+
 ### Get Access to Shreds
 
 Ask for shred delivery in official support ticket in [Discord](https://discord.gg/2UfWGtUDtN), providing your desired region and destination `ip:port`.
