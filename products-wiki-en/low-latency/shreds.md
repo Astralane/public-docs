@@ -137,7 +137,7 @@ Send your tip-carrying transactions to the closest regional **shred-pay endpoint
 * AStzprSDj14m1pdMuuomjLQwUL5X4d4yEKwiFfzfUSeC
 * ASTzWqJ1irGmrWZAkc1UUfVYbJknsxh7R3Jo4jYZ7Mbd
 
-### Get Access to Shreds
+### Get Access to the Shreds
 
 Ask for shred delivery in official support ticket in [Discord](https://discord.gg/2UfWGtUDtN), providing your desired region and destination `ip:port`.
 
