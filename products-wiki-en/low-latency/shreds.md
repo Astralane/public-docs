@@ -67,7 +67,7 @@ This allows clients to:
 
 #### Shreds pricing
 
-Instead of hard monthly commitments, we provide a pay-as-you-use model. If you accumulate enough tips for the last 24h window using our [submit-transactions](submit-transactions/ "mention") endpoints, you will be automatically eligible to enter one of the shred tiers.
+Instead of hard monthly commitments, we provide a pay-as-you-use model. If you accumulate enough tips for the last 24h window using our [Shred-pay endpoint](https://astralane.gitbook.io/docs/low-latency/shreds#tip-endpoints), you will be automatically eligible to enter one of the shred tiers.
 
 | Shreds Tier | Required 24h Tips | Description                                                              |
 | ----------- | ----------------- | ------------------------------------------------------------------------ |
@@ -92,7 +92,7 @@ You can check your current tier and 24h tips at [https://portal.astralane.io/shr
 
 #### Grace period & downgrades
 
-As soon as you cross a tier's 24h tip threshold, you are upgraded immediately.\
+As soon as you cross a tier's 24h tip threshold, you are upgraded immediately.\
 If your trailing-24h tips drop below your current tier, you are not dropped instantly. You keep the tier for a 24h grace window, then fall back one tier down.\
 \
 Downgrades step down one tier at a time (tier-2 → tier-1), never straight to no-access.
