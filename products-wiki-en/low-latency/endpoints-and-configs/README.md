@@ -73,8 +73,8 @@ Recently Added:&#x20;
 
 #### **Min Tip and Rate Limits:**
 
-{% content-ref url="../submit-transactions/fee-tiers.md" %}
-[fee-tiers.md](../submit-transactions/fee-tiers.md)
+{% content-ref url="../send-txn-fee-tiers.md" %}
+[send-txn-fee-tiers.md](../send-txn-fee-tiers.md)
 {% endcontent-ref %}
 {% endtab %}
 {% endtabs %}

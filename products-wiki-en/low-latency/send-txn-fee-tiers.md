@@ -2,11 +2,11 @@
 icon: ranking-star
 ---
 
-# Fee Tiers
+# Send Txn Fee Tiers
 
-The fee tier system dynamically adjusts a user’s minimum tip and TPS allocation based on their rolling tip volume over a rolling 5 day period. The system is designed to reward high tipping users with lower minimum tip requirements and higher rate limits.
+The fee tier system dynamically adjusts a user’s minimum tip and TPS allocation based on their rolling tip volume over a rolling 7 day period. The system is designed to reward high tipping users with lower minimum tip requirements and higher rate limits.
 
-The system runs on a rolling 5-day window, evaluating all users every hour.
+The system runs on a rolling 7-day window, evaluating all users every hour.
 
 Tier changes are immediate, downgrades are delayed by a grace period of 7 days.
 

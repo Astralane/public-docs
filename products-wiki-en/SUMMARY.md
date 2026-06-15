@@ -7,6 +7,7 @@
 * [QuickStart](low-latency/quickstart.md)
 * [Endpoints and Configs](low-latency/endpoints-and-configs/README.md)
   * [Changelogs](low-latency/endpoints-and-configs/changelogs.md)
+* [Send Txn Fee Tiers](low-latency/send-txn-fee-tiers.md)
 * [Submit Transactions](low-latency/submit-transactions/README.md)
   * [QUIC Transaction Submission](low-latency/submit-transactions/quic-transaction-submission.md)
   * [WebSocket Transaction Submission](low-latency/submit-transactions/websocket-transaction-submission.md)
@@ -15,7 +16,6 @@
   * [Tip Stream](low-latency/submit-transactions/tip-stream.md)
   * [Keep alive / Healthy Ping](low-latency/submit-transactions/keep-alive-healthy-ping.md)
   * [Tip Refunds](low-latency/submit-transactions/tip-refunds.md)
-  * [Fee Tiers](low-latency/submit-transactions/fee-tiers.md)
 * [Shreds](low-latency/shreds.md)
 * [Data Streams](low-latency/data-streams.md)
 
