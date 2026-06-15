@@ -287,7 +287,7 @@ fn main() {
 \
 Output: a live TUI with real-time counters and a zip archive with raw CSVs and summary tables for offline analysis.\
 \
-View source on GitHub
+View source on [GitHub](https://github.com/Astralane/shreds-monitor).
 
 ### FAQ&#x20;
 
