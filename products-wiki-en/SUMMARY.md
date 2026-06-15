@@ -13,7 +13,7 @@
   * [Send in Plain Text](low-latency/submit-transactions/send-in-plain-text.md)
   * [Send in Binary](low-latency/submit-transactions/send-in-binary.md)
   * [Tip Stream](low-latency/submit-transactions/tip-stream.md)
-  * [Pro Tips](low-latency/submit-transactions/pro-tips.md)
+  * [Keep alive / Healthy Ping](low-latency/submit-transactions/keep-alive-healthy-ping.md)
   * [Tip Refunds](low-latency/submit-transactions/tip-refunds.md)
   * [Fee Tiers](low-latency/submit-transactions/fee-tiers.md)
 * [Shreds](low-latency/shreds.md)
