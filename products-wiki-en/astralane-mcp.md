@@ -69,7 +69,7 @@ Or create `.vscode/mcp.json` in your project:
 
 #### Cursor
 
-No CLI yet. Inject config from the terminal:
+Inject config from the terminal:
 
 ```bash
 # Project-scoped
@@ -87,7 +87,7 @@ Or go to **Settings → Features → MCP → + Add new MCP server** and enter:
 
 #### Windsurf
 
-No CLI yet. Windsurf uses `"serverUrl"` instead of `"url"`:
+Windsurf uses `"serverUrl"` instead of `"url"`:
 
 ```bash
 mkdir -p .windsurf && echo '{"mcpServers":{"astralane":{"serverUrl":"https://mcp.astralane.io"}}}' > .windsurf/mcp.json
