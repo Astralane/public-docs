@@ -19,6 +19,10 @@
 * [Shreds](low-latency/shreds.md)
 * [Data Streams](low-latency/data-streams.md)
 
+***
+
+* [Astralane MCP](astralane-mcp.md)
+
 ## Mandarin Docs
 
 * [🌌 欢迎来到 Astralane](mandarin-docs/huan-ying-lai-dao-astralane/README.md)
