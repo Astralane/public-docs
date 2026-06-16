@@ -1,5 +1,6 @@
 ---
 description: The only MCP you need on solana.
+icon: user-robot
 ---
 
 # Astralane MCP
