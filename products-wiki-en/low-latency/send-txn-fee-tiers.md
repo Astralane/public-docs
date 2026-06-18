@@ -10,7 +10,7 @@ The system runs on a rolling 7-day window, evaluating all users every hour.
 
 Tier changes are immediate, downgrades are delayed by a grace period of 7 days.
 
-<table><thead><tr><th width="86.51953125">Tiers</th><th width="129.85546875">Minimum tip</th><th>Tip volume thresholds rolling 5 days</th><th width="118.2421875">single txn methods</th><th width="122.61328125">bundle txn method</th><th>QoS rate limiting</th></tr></thead><tbody><tr><td>Free</td><td>0.001</td><td>N/A</td><td>5 TPS</td><td>1 TPS</td><td>every 2 hours</td></tr><tr><td>VIP 1</td><td>0.0001</td><td>3</td><td>20 TPS</td><td>5 TPS</td><td>N/A</td></tr><tr><td>VIP 2</td><td>0.0001</td><td>5</td><td>40 TPS</td><td>10 TPS</td><td>N/A</td></tr><tr><td>VIP 3</td><td>0.00001</td><td>8</td><td>80 TPS</td><td>20 TPS</td><td>N/A</td></tr></tbody></table>
+<table><thead><tr><th width="86.51953125">Tiers</th><th width="129.85546875">Minimum tip</th><th>Tip volume thresholds rolling 7 days</th><th width="118.2421875">single txn methods</th><th width="122.61328125">bundle txn method</th><th>QoS rate limiting</th></tr></thead><tbody><tr><td>Free</td><td>0.001</td><td>N/A</td><td>5 TPS</td><td>1 TPS</td><td>every 2 hours</td></tr><tr><td>VIP 1</td><td>0.0001</td><td>3</td><td>20 TPS</td><td>5 TPS</td><td>N/A</td></tr><tr><td>VIP 2</td><td>0.0001</td><td>5</td><td>40 TPS</td><td>10 TPS</td><td>N/A</td></tr><tr><td>VIP 3</td><td>0.00001</td><td>8</td><td>80 TPS</td><td>20 TPS</td><td>N/A</td></tr></tbody></table>
 
 Users may view their current tier stats on [portal.astralane.io](http://portal.astralane.io)
 
