@@ -36,13 +36,13 @@ No, all tiers receive the same scheduling priority, our routers run in pure FIFO
 
 <summary>How do these tiers work if i am actively tipping to Astralane?</summary>
 
-Suppose you move from the Free tier to VIP 1 after tipping more than **10 SOL** over the previous rolling 5-day period. You are immediately upgraded and receive the benefits of VIP 1, including a reduced minimum tip of **0.0001 SOL per transaction**, along with higher TPS limits for both single transaction and bundle transaction methods.
+Suppose you move from the Free tier to VIP 1 after tipping more than 3 SOL over the previous rolling 7-day period. You are immediately upgraded and receive the benefits of VIP 1, including a reduced minimum tip of 0.0001 SOL per transaction, along with higher TPS limits for both single transaction and bundle transaction methods.
 
-If your rolling 5-day tip volume later drops below the **10 SOL** threshold (for example, to **8 SOL**) you are **not downgraded immediately**. Instead, you remain on **VIP 1** and continue receiving its benefits during a **7-day grace period**. Only after the grace period expires, if your rolling volume is still below the required threshold, will you be downgraded back to the **Free** tier.
+If your rolling 7-day tip volume later drops below the 3 SOL threshold (for example, to 2 SOL), you are not downgraded immediately. Instead, you remain on VIP 1 and continue receiving its benefits during a 7-day grace period. Only after the grace period expires, if your rolling volume is still below the required threshold, will you be downgraded back to the Free tier.
 
-Similarly, suppose you move from **VIP 1** to **VIP 2** after exceeding the **40 SOL** threshold, and your rolling 5-day volume later falls significantly below it (for example, to **5 SOL**). You are **not immediately downgraded**. Instead, you remain on **VIP 2** and continue receiving its benefits during a **7-day grace period**.
+Similarly, suppose you move from VIP 1 to VIP 2 after exceeding the 5 SOL threshold, and your rolling 7-day volume later falls significantly below it (for example, to 2 SOL). You are not immediately downgraded. Instead, you remain on VIP 2 and continue receiving its benefits during a 7-day grace period.
 
-After the grace period ends, if your volume still does not qualify for VIP 2, you are downgraded **one tier at a time**, moving first to **VIP 1**. If your rolling volume still remains below the **VIP 1** threshold (10 SOL), another **7-day grace period** begins on VIP 1. Only after this second grace period, if your volume remains below the requirement, will you be downgraded to the **Free** tier.
+After the grace period ends, if your volume still does not qualify for VIP 2, you are downgraded one tier at a time, moving first to VIP 1. If your rolling volume still remains below the VIP 1 threshold (3 SOL), another 7-day grace period begins on VIP 1. Only after this second grace period, if your volume remains below the requirement, will you be downgraded to the Free tier.
 
 </details>
 
@@ -50,7 +50,7 @@ After the grace period ends, if your volume still does not qualify for VIP 2, yo
 
 <summary>How do i get access to sendBundle?</summary>
 
-Not available in FREE tier, only available on VIP1-3. If you need trial access kindly add ping us on discord or tip enough to hit at least VIP1 tier and it will automatically apply in 1 hour.
+Available in the Free tier. This feature is available for all users at different TPS according to the current tier.
 
 </details>
 
