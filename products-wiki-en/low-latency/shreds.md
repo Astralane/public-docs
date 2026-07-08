@@ -63,24 +63,24 @@ This allows clients to:
 * Reconstruct state faster
 * Reduce dependency on slower or congested peers
 
-### Access & Pricing
+### Pricing & Tips Setup
 
 #### Shreds pricing
 
-Instead of hard monthly commitments, we provide a pay-as-you-use model. If you accumulate enough tips for the last 24h window using our [Shred-pay endpoint](https://astralane.gitbook.io/docs/low-latency/shreds#tip-endpoints), you will be automatically eligible to enter one of the shred tiers.
+Instead of hard monthly commitments, we provide a pay-as-you-use model. If you accumulate enough **registered** tips for the last 24h, you will be automatically eligible to enter one of the shred tiers.
 
 | Shreds Tier | Required 24h Tips | Description                                                              |
 | ----------- | ----------------- | ------------------------------------------------------------------------ |
 | tier-1      | 0.2 SOL           | Good for the dev testing, faster than Jito shreds.                       |
 | tier-2      | 0.5 SOL           | Ideal for the ultra-low-latency shred delivery and production workloads. |
 
-{% hint style="info" icon="wrench" %}
-**Coming soon**: pay-on-use at execution time - the tip will attach to the **closing leg** of your trade, so you only pay at the moment you act on the shred.
+{% hint style="info" icon="info" %}
+**Tip placement is flexible**: if you'd rather not add a tip to your entry transaction, you can attach it to the **closing leg** instead and register that transaction through ShredPay.
 {% endhint %}
 
 **What the tiers mean**
 
-Your tier controls how many&#x20;validator-direct shred sources you receive. A higher tier covers more leaders,&#x20;which lowers your effective shred latency - you see more of the network's blocks&#x20;earlier.&#x20;
+Your tier controls how many&#x20;validator-direct shred sources you receive. A higher tier covers more leaders,&#x20;which lowers your effective shred latency — you see more of the network's blocks&#x20;earlier.&#x20;
 
 * **Tier-1** gives baseline coverage, enough for development and testing;
 * **Tier-2** unlocks broader leader coverage for ultra-low-latency production  \
@@ -97,8 +97,49 @@ If your trailing-24h tips drop below your current tier, you are not dropped inst
 \
 Downgrades step down one tier at a time (tier-2 → tier-1), never straight to no-access.
 
-{% hint style="info" icon="meteor" %}
+{% hint style="info" icon="info" %}
 The grace period means a single quiet trading day won't cut off your shred feed
+{% endhint %}
+
+#### How your tips get counted
+
+ShredPay is a separate HTTP service used only for registering tips - not for landing transactions.\
+You send:
+
+* signed transaction
+* slot that triggered the transaction
+
+**Request format:**
+
+`POST` to your endpoint URL, JSON body (array):
+
+```http
+...
+POST /shred-pay?api-key=<your-api-key> HTTP/1.1
+Host: edge.astralane.io
+Content-Type: application/json
+
+[{ "transaction": "<base64 bincode-encoded signed tx>", "slot": 123456789 }]
+...
+```
+
+**Response format:**
+
+```json
+{ "accepted": ["<your transaction signature>"] }
+```
+
+You can land your transactions anywhere — Iris or any other provider. That part is entirely up to you.\
+
+
+{% hint style="info" icon="info" %}
+**Tier counting**: a tip only counts once a copy of that transaction is sent to **ShredPay** over HTTP. Landing it somewhere doesn't register it — not even through Astralane's own services.
+{% endhint %}
+
+**No double-paying.** You don't pay Astralane twice. If you're already tipping \~0.5 SOL or more via Iris, that stays exactly the same — you just also send a **copy** of those tipped transactions to the ShredPay endpoint.
+
+{% hint style="warning" %}
+**Important**: starting **July 15**, tips sent through Iris without a separate ShredPay registration will no longer count toward your tier.
 {% endhint %}
 
 #### How to set up tipping&#x20;
@@ -109,26 +150,14 @@ The best use of such model is integrating tips into your searcher code:
 // main searcher logic
 ...
 if astralane_shred_was_a_source_signal() {
-    add_tip_instruction()
-    send_tx_to_astralane()
+    land_transaction()              // any provider
+    send_tx_copy_to_shredpay()     // registers the tip
 }
 ```
 
-#### Tip endpoints
+**Full working example**: builds a tip transaction, lands it via Iris, and registers a copy through the ShredPay HTTP endpoint.
 
-Send your tip-carrying transactions to the closest regional **shred-pay endpoint:**
-
-* Global Edge Endpoint : [https://edge.astralane.io/shred-pay?api-key=xxxx](https://edge.astralane.io/shred-pay?api-key=xxxx)
-* Frankfurt (Recommended): [<mark style="color:blue;">http://fr.gateway.astralane.io/shred-pay?api-key=xxxx</mark>](https://fr.gateway.astralane.io/shred-pay?api-key=xxxx)
-* Frankfurt: [<mark style="color:blue;">http://fr2.gateway.astralane.io/shred-pay?api-key=xxxx</mark>](https://fr2.gateway.astralane.io/shred-pay?api-key=xxxx)
-* San Francisco: [http://la.gateway.astralane.io/shred-pay?api-key=xxxx](https://la.gateway.astralane.io/shred-pay?api-key=xxxx)
-* Tokyo: [<mark style="color:blue;">http://jp.gateway.astralane.io/shred-pay?api-key=xxxx</mark>](http://jp.gateway.astralane.io/shred-pay?api-key=xxxx)
-* New York: [<mark style="color:blue;">http://ny.gateway.astralane.io/shred-pay?api-key=xxxx</mark>](http://ny.gateway.astralane.io/shred-pay?api-key=xxxx)
-* Amsterdam (Recommended): [http://ams.gateway.astralane.io/shred-pay?api-key=xxxx](http://ams.gateway.astralane.io/shred-pay?api-key=xxxx)
-* Amsterdam 2: [http://ams2.gateway.astralane.io/shred-pay?api-key=xxxx](http://ams2.gateway.astralane.io/shred-pay?api-key=xxxx)
-* Limburg: [http://lim.gateway.astralane.io/shred-pay?api-key=xxxx](http://lim.gateway.astralane.io/shred-pay?api-key=xxxx)
-* Singapore: [http://sg.gateway.astralane.io/shred-pay?api-key=xxxx](http://sg.gateway.astralane.io/shred-pay?api-key=xxxx)
-* Lithuania: [http://lit.gateway.astralane.io/shred-pay?api-key=xxxx](http://lit.gateway.astralane.io/shred-pay?api-key=xxxx)
+**View the example on** [**GitHub**](https://github.com/Astralane/shred-tools/tree/main/shreds-example)**.**
 
 #### Tipping Address
 
@@ -137,13 +166,23 @@ Send your tip-carrying transactions to the closest regional **shred-pay endpoint
 * AStzprSDj14m1pdMuuomjLQwUL5X4d4yEKwiFfzfUSeC
 * ASTzWqJ1irGmrWZAkc1UUfVYbJknsxh7R3Jo4jYZ7Mbd
 
+#### ShredPay endpoints
+
+Send your [POST request](shreds.md#how-your-tips-get-counted) to the endpoint closest to your infra:
+
+<table><thead><tr><th width="272.22222900390625">Region</th><th>HTTP Endpoint</th></tr></thead><tbody><tr><td>Global Edge Endpoint</td><td><a href="https://edge.astralane.io/shred-pay?api-key=xxxx">https://edge.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Frankfurt (Recommended)</td><td><a href="http://fr.gateway.astralane.io/shred-pay?api-key=xxxx">http://fr.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Frankfurt</td><td><a href="http://fr2.gateway.astralane.io/shred-pay?api-key=xxxx">http://fr2.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>San Francisco</td><td><a href="http://la.gateway.astralane.io/shred-pay?api-key=xxxx">http://la.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Tokyo</td><td><a href="http://jp.gateway.astralane.io/shred-pay?api-key=xxxx">http://jp.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>New York</td><td><a href="http://ny.gateway.astralane.io/shred-pay?api-key=xxxx">http://ny.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Amsterdam (Recommended)</td><td><a href="http://ams.gateway.astralane.io/shred-pay?api-key=xxxx">http://ams.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Amsterdam 2</td><td><a href="http://ams2.gateway.astralane.io/shred-pay?api-key=xxxx">http://ams2.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Limburg</td><td><a href="http://lim.gateway.astralane.io/shred-pay?api-key=xxxx">http://lim.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Singapore</td><td><a href="http://sg.gateway.astralane.io/shred-pay?api-key=xxxx">http://sg.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Lithuania</td><td><a href="http://lit.gateway.astralane.io/shred-pay?api-key=xxxx">http://lit.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr></tbody></table>
+
+{% hint style="info" icon="info" %}
+Get your API key from the Astralane portal. Requests without a valid key are rejected.
+{% endhint %}
+
 ### Get Access to the Shreds
 
-Ask for shred delivery in official support ticket in [Discord](https://discord.gg/2UfWGtUDtN), providing your desired region and destination `ip:port`.
+You can connect your shred stream directly through the [Astralane](https://astralane.io/) portal. If you run into any issues, open a support ticket in [Discord](https://discord.gg/2UfWGtUDtN), providing your desired region and destination `ip:port`.
 
 Currently supported regions:&#x20;
 
-* FRA (shred relay is on Fra2 Terraswitch for co-location)
+* FRA (shred relay is on Fra2 Terraswitch and Cherry for co-location)
 * NY (shred relay is on Ewr2 Terraswitch for co-location)
 
 ### Examples & Code
@@ -301,15 +340,7 @@ Tiers determine how many validator-direct shred sources you receive: higher tier
 
 <details>
 
-<summary>2. I tipped 10 SOL in one day but the Tier 2 threshold is 0.5 SOL/day – what happens?</summary>
-
-If you tip more than the daily threshold, the extra amount rolls over. For example, tipping 10 SOL at a 0.5 SOL/day threshold covers you for 20 days of Tier 2 access.
-
-</details>
-
-<details>
-
-<summary>3. Which regions do you operate in?</summary>
+<summary>2. Which regions do you operate in?</summary>
 
 We operate out of two regions: Frankfurt at Fra2, Terraswitch DC and New York at Ewr2.
 
@@ -317,7 +348,7 @@ We operate out of two regions: Frankfurt at Fra2, Terraswitch DC and New York at
 
 <details>
 
-<summary>4. Can I receive shreds on two different IPs at the same time?</summary>
+<summary>3. Can I receive shreds on two different IPs at the same time?</summary>
 
 Yes, this is fully supported.
 
@@ -325,7 +356,7 @@ Yes, this is fully supported.
 
 <details>
 
-<summary>5. Should I connect to shreds in both Europe and the Americas?</summary>
+<summary>4. Should I connect to shreds in both Europe and the Americas?</summary>
 
 For maximum coverage, yes. If a leader is located in the Americas and you're only connected through our EU ingester, you'll absorb approximately 90ms of additional transit latency. That said, the majority of leaders are EU-based, so most clients get the best results staying on Frankfurt.
 
@@ -333,7 +364,7 @@ For maximum coverage, yes. If a leader is located in the Americas and you're onl
 
 <details>
 
-<summary>6. What are preconfs?</summary>
+<summary>5. What are preconfs?</summary>
 
 Preconfs give you a view of the chain's state before it reaches full confirmation - an earlier signal than what most providers can offer.
 
@@ -341,7 +372,7 @@ Preconfs give you a view of the chain's state before it reaches full confirmatio
 
 <details>
 
-<summary>7. How are preconfs different from shreds?</summary>
+<summary>6. How are preconfs different from shreds?</summary>
 
 Standard shred streams rely on the public turbine broadcast path. Our infrastructure provides visibility into validator state earlier than that path, which is what we expose as preconfs - giving you a faster read on chain state without waiting for full confirmation.
 
@@ -349,7 +380,7 @@ Standard shred streams rely on the public turbine broadcast path. Our infrastruc
 
 <details>
 
-<summary>8. Why are preconfs faster than regular shred streams?</summary>
+<summary>7. Why are preconfs faster than regular shred streams?</summary>
 
 Our pipeline receives certain validators' data through a faster path than the public top-of-turbine route that most relays consume. That timing advantage is the edge we pass directly to you.
 
@@ -357,7 +388,7 @@ Our pipeline receives certain validators' data through a faster path than the pu
 
 <details>
 
-<summary>9. What is the difference between direct and turbine shreds?</summary>
+<summary>8. What is the difference between direct and turbine shreds?</summary>
 
 Turbine is Solana's public UDP broadcast tree - shreds hop peer-to-peer, so you sit several hops from the leader. Direct shreds reach you over a shorter path with fewer hops, meaning earlier and more consistent arrival.
 
@@ -365,7 +396,7 @@ Turbine is Solana's public UDP broadcast tree - shreds hop peer-to-peer, so you 
 
 <details>
 
-<summary>10. What are on-demand shreds?</summary>
+<summary>9. What are on-demand shreds?</summary>
 
 Pay only for what you use - no monthly fee. Your tier is set by your trailing-24h tips. If shred quality is poor and you don't act on it, you don't tip and don't pay for that.
 
@@ -373,7 +404,7 @@ Pay only for what you use - no monthly fee. Your tier is set by your trailing-24
 
 <details>
 
-<summary>11. How do I pay only for the shreds I actually use?</summary>
+<summary>10. How do I pay only for the shreds I actually use?</summary>
 
 Add the tip instruction only when an Astralane shred was the signal for a trade — so you pay strictly where it gave you an edge.\
 \
