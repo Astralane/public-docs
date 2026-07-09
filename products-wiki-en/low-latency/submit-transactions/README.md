@@ -26,7 +26,7 @@ Just insert the URL where you would place a RPC URL and send your txns how you s
 Example :&#x20;
 
 ```
-https://fra.gateway.astralane.io/iris?api-key=APIKEY&mev-protect=true
+https://fr.gateway.astralane.io/iris?api-key=APIKEY&mev-protect=true
 ```
 
 #### JSON-RPC params
