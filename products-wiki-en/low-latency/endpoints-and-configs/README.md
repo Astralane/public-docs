@@ -16,7 +16,7 @@ icon: wrench
   * IPv4 : 185.191.117.97
 * Frankfurt: [<mark style="color:blue;">http://fr2.gateway.astralane.io/iris2?api-key=xxxx</mark>](https://fr2.gateway.astralane.io/iris2?api-key=xxxx)
   * IPv4 : 45.139.132.160
-* San Francisco: [http://la.gateway.astralane.io/iris2?api-key=xxxx](https://la.gateway.astralane.io/iris2?api-key=xxxx)
+* Los Angeles: [http://la.gateway.astralane.io/iris2?api-key=xxxx](https://la.gateway.astralane.io/iris2?api-key=xxxx)
   * IPv4 : 74.118.142.151
 * Tokyo: [<mark style="color:blue;">http://jp.gateway.astralane.io/iris2?api-key=xxxx</mark>](http://jp.gateway.astralane.io/iris2?api-key=xxxx)
   * IPv4 : 189.1.164.31
@@ -62,14 +62,14 @@ icon: wrench
 Recently Added:&#x20;
 
 * AstrA1ejL4UeXC2SBP4cpeEmtcFPZVLxx3XGKXyCW6to
-*  AsTra79FET4aCKWspPqeSFvjJNyp96SvAnrmyAxqg5b7
-*  AstrABAu8CBTyuPXpV4eSCJ5fePEPnxN8NqBaPKQ9fHR
+* AsTra79FET4aCKWspPqeSFvjJNyp96SvAnrmyAxqg5b7
+* AstrABAu8CBTyuPXpV4eSCJ5fePEPnxN8NqBaPKQ9fHR
 * AsTRADtvb6tTmrsqULQ9Wji9PigDMjhfEMza6zkynEvV
-*  AsTRAEoyMofR3vUPpf9k68Gsfb6ymTZttEtsAbv8Bk4d
-*  AStrAJv2RN2hKCHxwUMtqmSxgdcNZbihCwc1mCSnG83W
-*  Astran35aiQUF57XZsmkWMtNCtXGLzs8upfiqXxth2bz
-*  AStRAnpi6kFrKypragExgeRoJ1QnKH7pbSjLAKQVWUum
-*  ASTRaoF93eYt73TYvwtsv6fMWHWbGmMUZfVZPo3CRU9C
+* AsTRAEoyMofR3vUPpf9k68Gsfb6ymTZttEtsAbv8Bk4d
+* AStrAJv2RN2hKCHxwUMtqmSxgdcNZbihCwc1mCSnG83W
+* Astran35aiQUF57XZsmkWMtNCtXGLzs8upfiqXxth2bz
+* AStRAnpi6kFrKypragExgeRoJ1QnKH7pbSjLAKQVWUum
+* ASTRaoF93eYt73TYvwtsv6fMWHWbGmMUZfVZPo3CRU9C
 
 #### **Min Tip and Rate Limits:**
 
