@@ -11,7 +11,7 @@ icon: wrench
 {% tab title="Iris" %}
 **Transaction Sending Endpoints**:&#x20;
 
-* Global Edge Endpoint : [https://edge.astralane.io/iris2?api-key=xxxx](https://edge.astralane.io/iris2?api-key=xxxx)
+* Global Edge Endpoint : [https://edge.astralane.io/iris?api-key=xxxx](https://edge.astralane.io/iris2?api-key=xxxx)
 * Frankfurt (Recommended): [<mark style="color:blue;">http://fr.gateway.astralane.io/iris2?api-key=xxxx</mark>](https://fr.gateway.astralane.io/iris2?api-key=xxxx)
   * IPv4 : 185.191.117.97
 * Frankfurt: [<mark style="color:blue;">http://fr2.gateway.astralane.io/iris2?api-key=xxxx</mark>](https://fr2.gateway.astralane.io/iris2?api-key=xxxx)
