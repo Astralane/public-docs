@@ -11,26 +11,26 @@ icon: wrench
 {% tab title="Iris" %}
 **Transaction Sending Endpoints**:&#x20;
 
-* Global Edge Endpoint : [https://edge.astralane.io/iris?api-key=xxxx](https://edge.astralane.io/iris2?api-key=xxxx)
-* Frankfurt (Recommended): [<mark style="color:blue;">http://fr.gateway.astralane.io/iris2?api-key=xxxx</mark>](https://fr.gateway.astralane.io/iris2?api-key=xxxx)
+* Global Edge Endpoint : [https://edge.astralane.io/iris?api-key=xxxx](https://edge.astralane.io/iris?api-key=xxxx)
+* Frankfurt (Recommended): [<mark style="color:blue;">http://fr.gateway.astralane.io/iris?api-key=xxxx</mark>](https://fr.gateway.astralane.io/iris?api-key=xxx)
   * IPv4 : 185.191.117.97
-* Frankfurt: [<mark style="color:blue;">http://fr2.gateway.astralane.io/iris2?api-key=xxxx</mark>](https://fr2.gateway.astralane.io/iris2?api-key=xxxx)
+* Frankfurt: [<mark style="color:blue;">http://fr2.gateway.astralane.io/iris?api-key=xxxx</mark>](https://fr2.gateway.astralane.io/iris?api-key=xxxx)
   * IPv4 : 45.139.132.160
-* Los Angeles: [http://la.gateway.astralane.io/iris2?api-key=xxxx](https://la.gateway.astralane.io/iris2?api-key=xxxx)
+* Los Angeles: [http://la.gateway.astralane.io/iris?api-key=xxxx](https://la.gateway.astralane.io/iris?api-key=xxxx)
   * IPv4 : 74.118.142.151
-* Tokyo: [<mark style="color:blue;">http://jp.gateway.astralane.io/iris2?api-key=xxxx</mark>](http://jp.gateway.astralane.io/iris2?api-key=xxxx)
+* Tokyo: [<mark style="color:blue;">http://jp.gateway.astralane.io/iris?api-key=xxxx</mark>](http://jp.gateway.astralane.io/iris?api-key=xxxx)
   * IPv4 : 189.1.164.31
-* New York: [<mark style="color:blue;">http://ny.gateway.astralane.io/iris2?api-key=xxxx</mark>](http://ny.gateway.astralane.io/iris?api-key=xxxx)
+* New York: [<mark style="color:blue;">http://ny.gateway.astralane.io/iris?api-key=xxxx</mark>](http://ny.gateway.astralane.io/iris?api-key=xxxx)
   * IPv4 : 64.130.45.19
-* Amsterdam (Recommended): [http://ams.gateway.astralane.io/iris2?api-key=xxxx](http://ams.gateway.astralane.io/iris2?api-key=xxxx)
+* Amsterdam (Recommended): [http://ams.gateway.astralane.io/iris?api-key=xxxx](http://ams.gateway.astralane.io/iris?api-key=xxxx)
   * IPv4 : 64.130.43.43
-* Amsterdam 2: [http://ams2.gateway.astralane.io/iris2?api-key=xxxx](http://ams2.gateway.astralane.io/iris2?api-key=xxxx)
+* Amsterdam 2: [http://ams2.gateway.astralane.io/iris?api-key=xxxx](http://ams2.gateway.astralane.io/iris?api-key=xxxx)
   * IPv4 : 84.32.186.73 (Cherry Servers)
-* Limburg: [http://lim.gateway.astralane.io/iris2?api-key=xxxx](http://lim.gateway.astralane.io/iris2?api-key=xxxx)
+* Limburg: [http://lim.gateway.astralane.io/iris?api-key=xxxx](http://lim.gateway.astralane.io/iris?api-key=xxxx)
   * IPv4 : 162.19.222.232
-* Singapore: [http://sg.gateway.astralane.io/iris2?api-key=xxxx](http://sg.gateway.astralane.io/iris2?api-key=xxxx)
+* Singapore: [http://sg.gateway.astralane.io/iris?api-key=xxxx](http://sg.gateway.astralane.io/iris?api-key=xxxx)
   * IPv4 : 67.209.54.176&#x20;
-* Lithuania: [http://lit.gateway.astralane.io/iris2?api-key=xxxx](http://lit.gateway.astralane.io/iris2?api-key=xxxx)
+* Lithuania: [http://lit.gateway.astralane.io/iris?api-key=xxxx](http://lit.gateway.astralane.io/iris?api-key=xxxx)
   * IPv4 : 84.32.97.47
 
 {% hint style="info" %}
