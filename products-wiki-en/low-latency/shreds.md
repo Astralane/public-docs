@@ -364,31 +364,7 @@ For maximum coverage, yes. If a leader is located in the Americas and you're onl
 
 <details>
 
-<summary>5. What are preconfs?</summary>
-
-Preconfs give you a view of the chain's state before it reaches full confirmation - an earlier signal than what most providers can offer.
-
-</details>
-
-<details>
-
-<summary>6. How are preconfs different from shreds?</summary>
-
-Standard shred streams rely on the public turbine broadcast path. Our infrastructure provides visibility into validator state earlier than that path, which is what we expose as preconfs - giving you a faster read on chain state without waiting for full confirmation.
-
-</details>
-
-<details>
-
-<summary>7. Why are preconfs faster than regular shred streams?</summary>
-
-Our pipeline receives certain validators' data through a faster path than the public top-of-turbine route that most relays consume. That timing advantage is the edge we pass directly to you.
-
-</details>
-
-<details>
-
-<summary>8. What is the difference between direct and turbine shreds?</summary>
+<summary>5. What is the difference between direct and turbine shreds?</summary>
 
 Turbine is Solana's public UDP broadcast tree - shreds hop peer-to-peer, so you sit several hops from the leader. Direct shreds reach you over a shorter path with fewer hops, meaning earlier and more consistent arrival.
 
@@ -396,7 +372,7 @@ Turbine is Solana's public UDP broadcast tree - shreds hop peer-to-peer, so you 
 
 <details>
 
-<summary>9. What are on-demand shreds?</summary>
+<summary>6. What are on-demand shreds?</summary>
 
 Pay only for what you use - no monthly fee. Your tier is set by your trailing-24h tips. If shred quality is poor and you don't act on it, you don't tip and don't pay for that.
 
@@ -404,7 +380,7 @@ Pay only for what you use - no monthly fee. Your tier is set by your trailing-24
 
 <details>
 
-<summary>10. How do I pay only for the shreds I actually use?</summary>
+<summary>7. How do I pay only for the shreds I actually use?</summary>
 
 Add the tip instruction only when an Astralane shred was the signal for a trade — so you pay strictly where it gave you an edge.\
 \
