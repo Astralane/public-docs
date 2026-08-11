@@ -12,6 +12,7 @@
   * [QUIC Transaction Submission](low-latency/submit-transactions/quic-transaction-submission.md)
   * [WebSocket Transaction Submission](low-latency/submit-transactions/websocket-transaction-submission.md)
   * [Send in Plain Text](low-latency/submit-transactions/send-in-plain-text.md)
+  * [Send Ghost Transaction](low-latency/submit-transactions/send-ghost-transaction.md)
   * [Send in Binary](low-latency/submit-transactions/send-in-binary.md)
   * [Tip Stream](low-latency/submit-transactions/tip-stream.md)
   * [Keep alive / Healthy Ping](low-latency/submit-transactions/keep-alive-healthy-ping.md)

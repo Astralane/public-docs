@@ -17,11 +17,11 @@ Key Improvements Include:
 > * Compulsory to add `api-key` and `method` in URI params
 > * Send request on endpoint `/iris2`
 
-#### URI Params
+## URI Params
 
 <table><thead><tr><th width="171">Param</th><th width="120">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>api-key</code></td><td>String</td><td><strong>Mandatory</strong>, to set api key for authentication</td></tr><tr><td><code>method</code></td><td>String</td><td><strong>Mandatory</strong>, to set method</td></tr><tr><td><code>mev-protect</code></td><td>Boolean</td><td><strong>Optional</strong>, To set mev protect, default is <code>false</code></td></tr><tr><td><code>swqos-only</code></td><td>Boolean</td><td><strong>Optional</strong>, if set <code>true</code>, txn will be only send via swqos, default is <code>false</code></td></tr></tbody></table>
 
-#### Methods
+## Methods
 
 <table><thead><tr><th width="175">Method</th><th width="136">REST Method</th><th>Description</th></tr></thead><tbody><tr><td><code>sendTransaction</code></td><td><code>POST</code></td><td>To send base64 encoded transaction</td></tr><tr><td><code>sendBatch</code></td><td><code>POST</code></td><td>To send batch of up to 25 txns in Plain text</td></tr><tr><td><code>getHealth</code></td><td><code>POST</code></td><td>To keep alive connection</td></tr></tbody></table>
 
