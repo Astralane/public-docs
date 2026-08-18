@@ -4,13 +4,17 @@ icon: ranking-star
 
 # Send Txn Fee Tiers
 
-The fee tier system dynamically adjusts a user’s minimum tip and TPS allocation based on their rolling tip volume over a rolling 7 day period. The system is designed to reward high tipping users with lower minimum tip requirements and higher rate limits.
+The fee tier system dynamically adjusts a user’s minimum tip and TPS allocation based on their rolling tip volume over a rolling 7 day period. The system is designed to reward high-tipping users with lower minimum tip requirements and higher rate limits.
 
 The system runs on a rolling 7-day window, evaluating all users every hour.
 
 Tier changes are immediate, downgrades are delayed by a grace period of 7 days.
 
 <table><thead><tr><th width="86.51953125">Tiers</th><th width="129.85546875">Minimum tip</th><th>Tip volume thresholds rolling 7 days</th><th width="118.2421875">single txn methods</th><th width="122.61328125">bundle txn method</th><th>QoS rate limiting</th></tr></thead><tbody><tr><td>Free</td><td>0.001</td><td>N/A</td><td>5 TPS</td><td>0 TPS</td><td>every 2 hours</td></tr><tr><td>VIP 1</td><td>0.0001</td><td>3</td><td>20 TPS</td><td>5 TPS</td><td>N/A</td></tr><tr><td>VIP 2</td><td>0.0001</td><td>5</td><td>40 TPS</td><td>10 TPS</td><td>N/A</td></tr><tr><td>VIP 3</td><td>0.00001</td><td>8</td><td>80 TPS</td><td>20 TPS</td><td>N/A</td></tr></tbody></table>
+
+#### **Instant VIP upgrade**
+
+You can use the **Upgrade API key** option on the portal and pay the tip volume threshold of the tier you want (for example, 3 SOL in tips for VIP 1). You qualify at the next hourly evaluation. One large tip or many small tips, both count toward the same rolling volume.
 
 Users may view their current tier stats on [portal.astralane.io](http://portal.astralane.io)
 
@@ -70,3 +74,12 @@ All users have access to check write lock contention on our public tip wallets u
 
 </details>
 
+<details>
+
+<summary>Can I upgrade to a VIP tier immediately?</summary>
+
+Yes. Use the Upgrade API key button on the portal and pay the threshold of any VIP tier in tips (3 / 5 / 8 SOL). Tiers are evaluated every hour, so your upgrade applies at the next hourly check, no waiting period for upgrades.
+
+</details>
+
+*
