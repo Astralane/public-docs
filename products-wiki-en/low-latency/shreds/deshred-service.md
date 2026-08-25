@@ -36,7 +36,7 @@ Deshred Service is designed for:
 
 #### Pricing & Access
 
-prices info HERE!!
+Only available on Shred Tier 2 at the moment.
 
 ***
 
