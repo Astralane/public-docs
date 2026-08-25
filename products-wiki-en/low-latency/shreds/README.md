@@ -88,7 +88,7 @@ Your tier controls how many&#x20;validator-direct shred sources you receive. A 
 
 You can check your current tier and 24h tips at [https://portal.astralane.io/shreds](https://portal.astralane.io/shreds)
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 #### Grace period & downgrades
 
@@ -168,7 +168,7 @@ if astralane_shred_was_a_source_signal() {
 
 #### ShredPay endpoints
 
-Send your [POST request](shreds.md#how-your-tips-get-counted) to the endpoint closest to your infra:
+Send your [POST request](./#how-your-tips-get-counted) to the endpoint closest to your infra:
 
 <table><thead><tr><th width="272.22222900390625">Region</th><th>HTTP Endpoint</th></tr></thead><tbody><tr><td>Global Edge Endpoint</td><td><a href="https://edge.astralane.io/shred-pay?api-key=xxxx">https://edge.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Frankfurt (Recommended)</td><td><a href="http://fr.gateway.astralane.io/shred-pay?api-key=xxxx">http://fr.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Frankfurt</td><td><a href="http://fr2.gateway.astralane.io/shred-pay?api-key=xxxx">http://fr2.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>San Francisco</td><td><a href="http://la.gateway.astralane.io/shred-pay?api-key=xxxx">http://la.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Tokyo</td><td><a href="http://jp.gateway.astralane.io/shred-pay?api-key=xxxx">http://jp.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>New York</td><td><a href="http://ny.gateway.astralane.io/shred-pay?api-key=xxxx">http://ny.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Amsterdam (Recommended)</td><td><a href="http://ams.gateway.astralane.io/shred-pay?api-key=xxxx">http://ams.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Amsterdam 2</td><td><a href="http://ams2.gateway.astralane.io/shred-pay?api-key=xxxx">http://ams2.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Limburg</td><td><a href="http://lim.gateway.astralane.io/shred-pay?api-key=xxxx">http://lim.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Singapore</td><td><a href="http://sg.gateway.astralane.io/shred-pay?api-key=xxxx">http://sg.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Lithuania</td><td><a href="http://lit.gateway.astralane.io/shred-pay?api-key=xxxx">http://lit.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr></tbody></table>
 
