@@ -1,13 +1,12 @@
+---
+description: Technical details of Decoded Shreds usage
+---
+
 # How to use Deshreds
 
-1\. Connection
+#### 1. Connection
 
-| Parameter | Value                                                                                      |
-| --------- | ------------------------------------------------------------------------------------------ |
-| Protocol  | gRPC (HTTP/2), plaintext or TLS — depends on the entry point                               |
-| Service   | `geyser.Geyser`                                                                            |
-| Method    | `SubscribeDeshred(stream SubscribeDeshredRequest) returns (stream SubscribeUpdateDeshred)` |
-| Address   | issued with your API key (`deshred.bind_addr` in the hub config, e.g. `1.2.3.4:52000`)     |
+<table><thead><tr><th width="157.98175048828125">Parameter</th><th>Value</th></tr></thead><tbody><tr><td>Protocol</td><td>gRPC (HTTP/2), plaintext or TLS — depends on the entry point</td></tr><tr><td>Service</td><td><code>geyser.Geyser</code></td></tr><tr><td>Method</td><td><code>SubscribeDeshred(stream SubscribeDeshredRequest) returns (stream SubscribeUpdateDeshred)</code></td></tr><tr><td>Address</td><td>issued with your API key (<code>deshred.bind_addr</code> in the hub config, e.g. <code>1.2.3.4:52000</code>)</td></tr></tbody></table>
 
 **Authorization**
 
@@ -25,13 +24,13 @@ authorization: Bearer <API_KEY>
 
 This is the same key used for other Astralane services. Missing or unknown keys are rejected with `UNAUTHENTICATED`.
 
-
-
-Exceeding it returns `RESOURCE_EXHAUSTED` (`deshred subscriber limit reached [for api key]`). The slot is freed as soon as the stream closes.
-
 ***
 
 #### 2. Protobuf
+
+Most up to date protobuf is here: [https://github.com/Astralane/shred-tools/blob/main/proto/geyser.proto#L9](https://github.com/Astralane/shred-tools/blob/main/proto/geyser.proto#L9)
+
+Below if current state for convenience:&#x20;
 
 ```proto
 syntax = "proto3";
@@ -113,7 +112,7 @@ Both static message keys and addresses loaded from ALTs (`loaded_writable_addres
 
 Multiple filters run independently; each update's `filters` field lists the names of every filter that matched (alphabetically sorted). If nothing matches, no update is sent.
 
-Examples:
+**Examples**:
 
 ```jsonc
 // entire stream, no votes

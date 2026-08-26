@@ -18,7 +18,7 @@
   * [Keep alive / Healthy Ping](low-latency/submit-transactions/keep-alive-healthy-ping.md)
   * [Tip Refunds](low-latency/submit-transactions/tip-refunds.md)
 * [Shreds](low-latency/shreds/README.md)
-  * [Deshred service](low-latency/shreds/deshred-service.md)
+  * [Decoded Shreds](low-latency/shreds/decoded-shreds.md)
   * [How to use Deshreds](low-latency/shreds/how-to-use-deshreds.md)
 * [Data Streams](low-latency/data-streams.md)
 
