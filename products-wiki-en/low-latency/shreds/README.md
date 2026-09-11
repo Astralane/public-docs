@@ -138,10 +138,6 @@ You can land your transactions anywhere — Iris or any other provider. That par
 
 **No double-paying.** You don't pay Astralane twice. If you're already tipping \~0.5 SOL or more via Iris, that stays exactly the same — you just also send a **copy** of those tipped transactions to the ShredPay endpoint.
 
-{% hint style="warning" %}
-**Important**: starting **July 15**, tips sent through Iris without a separate ShredPay registration will no longer count toward your tier.
-{% endhint %}
-
 #### How to set up tipping&#x20;
 
 The best use of such model is integrating tips into your searcher code:
