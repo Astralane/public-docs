@@ -21,7 +21,7 @@
   * [Decoded Shreds](low-latency/shreds/decoded-shreds.md)
   * [How to use Deshreds](low-latency/shreds/how-to-use-deshreds.md)
 * [Data Streams](low-latency/data-streams.md)
-* [Postpack Service](low-latency/postpack-service.md)
+* [Postpacks](low-latency/postpacks.md)
 
 ***
 

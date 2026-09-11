@@ -3,7 +3,7 @@ description: The fastest transaction feed on Solana.
 icon: box-dollar
 ---
 
-# Postpack Service
+# Postpacks
 
 ### What are postpacks?
 
@@ -82,6 +82,6 @@ if astralane_postpack_was_a_source_signal() {
 
 #### ShredPay endpoints
 
-Send your [POST request](postpack-service.md#how-your-tips-get-counted) to the endpoint closest to your infra:
+Send your [POST request](postpacks.md#how-your-tips-get-counted) to the endpoint closest to your infra:
 
 <table><thead><tr><th width="272.22222900390625">Region</th><th>HTTP Endpoint</th></tr></thead><tbody><tr><td>Global Edge Endpoint</td><td><a href="https://edge.astralane.io/postpack-pay?api-key=xxxx">https://edge.astralane.io/postpack-pay?api-key=xxxx</a></td></tr><tr><td>Frankfurt (Recommended)</td><td><a href="http://fr.gateway.astralane.io/postpack-pay?api-key=xxxx">http://fr.gateway.astralane.io/postpack-pay?api-key=xxxx</a></td></tr><tr><td>Frankfurt</td><td><a href="http://fr2.gateway.astralane.io/postpack-pay?api-key=xxxx">http://fr2.gateway.astralane.io/postpack-pay?api-key=xxxx</a></td></tr><tr><td>San Francisco</td><td><a href="http://la.gateway.astralane.io/postpack-pay?api-key=xxxx">http://la.gateway.astralane.io/postpack-pay?api-key=xxxx</a></td></tr><tr><td>Tokyo</td><td><a href="http://jp.gateway.astralane.io/postpack-pay?api-key=xxxx">http://jp.gateway.astralane.io/postpack-pay?api-key=xxxx</a></td></tr><tr><td>New York</td><td><a href="http://ny.gateway.astralane.io/postpack-pay?api-key=xxxx">http://ny.gateway.astralane.io/postpack-pay?api-key=xxxx</a></td></tr><tr><td>Amsterdam (Recommended)</td><td><a href="http://ams.gateway.astralane.io/postpack-pay?api-key=xxxx">http://ams.gateway.astralane.io/postpack-pay?api-key=xxx</a></td></tr><tr><td>Amsterdam 2</td><td><a href="http://ams2.gateway.astralane.io/postpack-pay?api-key=xxxx">http://ams2.gateway.astralane.io/postpack-pay?api-key=xxxx</a></td></tr><tr><td>Limburg</td><td><a href="http://lim.gateway.astralane.io/postpack-pay?api-key=xxxx">http://lim.gateway.astralane.io/postpack-pay?api-key=xxxx</a></td></tr><tr><td>Singapore</td><td><a href="http://sg.gateway.astralane.io/postpack-pay?api-key=xxxx">http://sg.gateway.astralane.io/postpack-pay?api-key=xxxx</a></td></tr><tr><td>Lithuania</td><td><a href="http://lit.gateway.astralane.io/postpack-pay?api-key=xxxx">http://lit.gateway.astralane.io/postpack-pay?api-key=xxxx</a></td></tr></tbody></table>
