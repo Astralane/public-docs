@@ -10,7 +10,7 @@ The system runs on a rolling 7-day window, evaluating all users every hour.
 
 Tier changes are immediate, downgrades are delayed by a grace period of 7 days.
 
-<table><thead><tr><th width="86.51953125">Tiers</th><th width="129.85546875">Minimum tip</th><th>Tip volume thresholds rolling 7 days</th><th width="118.2421875">single txn methods</th><th width="122.61328125">bundle txn method</th><th>QoS rate limiting</th></tr></thead><tbody><tr><td>Free</td><td>0.001</td><td>N/A</td><td>5 TPS</td><td>0 TPS</td><td>every 2 hours</td></tr><tr><td>VIP 1</td><td>0.0001</td><td>3</td><td>20 TPS</td><td>5 TPS</td><td>N/A</td></tr><tr><td>VIP 2</td><td>0.0001</td><td>5</td><td>40 TPS</td><td>10 TPS</td><td>N/A</td></tr><tr><td>VIP 3</td><td>0.00001</td><td>8</td><td>80 TPS</td><td>20 TPS</td><td>N/A</td></tr></tbody></table>
+<table><thead><tr><th width="86.51953125">Tiers</th><th width="129.85546875">Minimum tip</th><th>Tip volume thresholds rolling 7 days</th><th width="118.2421875">single txn methods</th><th width="122.61328125">bundle txn method</th><th>QoS rate limiting</th></tr></thead><tbody><tr><td>Free</td><td>0.001</td><td>N/A</td><td>5 TPS</td><td>0 TPS</td><td>every 2 hours</td></tr><tr><td>VIP 1</td><td>0.0001</td><td>4</td><td>20 TPS</td><td>5 TPS</td><td>N/A</td></tr><tr><td>VIP 2</td><td>0.0001</td><td>5</td><td>40 TPS</td><td>10 TPS</td><td>N/A</td></tr><tr><td>VIP 3</td><td>0.00001</td><td>8</td><td>80 TPS</td><td>20 TPS</td><td>N/A</td></tr></tbody></table>
 
 #### **Instant VIP upgrade**
 
@@ -20,7 +20,7 @@ Users may view their current tier stats on [portal.astralane.io](http://portal.a
 
 ### QoS rate limiting
 
-If your transactions have a high failure rate, a QoS penalty will apply to your execution priority. For example, if only 1% of your transactions land successfully over the last 1 hour, access to certain exclusive paths will be throttled/reset rather than continously available, including lower rate limits applied to all endpoints.
+If your transactions have a high failure rate, a QoS penalty will apply to your execution priority. For example, if only 1% of your transactions land successfully over the last 1 hour, access to certain exclusive paths will be throttled/reset rather than continuously available, including lower rate limits applied to all endpoints.
 
 ### Custom Limits
 
@@ -60,7 +60,7 @@ Available in the Free tier. This feature is available for all users at different
 
 <details>
 
-<summary>How do i get access to Quic?</summary>
+<summary>How do i get access to QUIC?</summary>
 
 All users have access to Quic, even free plan users.
 

@@ -2,7 +2,7 @@
 icon: bolt
 ---
 
-# Pro Tips
+# Keep alive / Healthy Ping
 
 ## Keep-Alive Connections
 
@@ -71,4 +71,4 @@ Here is the [full source with example](https://github.com/Astralane/keep-Alive-E
 
 Tip wallets are prone to write locks, which may result in landing of your transactions being delayed.&#x20;
 
-We recommend rotating our tip wallets to avoid this issue.&#x20;
+We recommend rotating our tip wallets with every send to avoid this issue.&#x20;

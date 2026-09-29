@@ -32,6 +32,8 @@ icon: wrench
   * IPv4 : 67.209.54.176&#x20;
 * Lithuania: [http://lit.gateway.astralane.io/iris?api-key=xxxx](http://lit.gateway.astralane.io/iris?api-key=xxxx)
   * IPv4 : 84.32.97.47
+* London: [http://lon.gateway.astralane.io/iris?api-key=xxxx](http://lit.gateway.astralane.io/iris?api-key=xxxx)
+  * IPv4 : 63.254.168.71
 
 {% hint style="info" %}
 - Its recommended to broadcast your txns to both global edge endpoint as well as to the closest endpoint for optimal performance.
@@ -80,7 +82,7 @@ Recently Added:&#x20;
 {% endtabs %}
 
 {% hint style="info" %}
-Please create an account to our [user portal](https://portal.astralane.io/)  to get access to api keys for our transaction landing service and create a ticket in [our discord](https://discord.gg/2UfWGtUDtN) server.
+Please create an account to our [user portal](https://portal.astralane.io/)  to get access to API keys for our transaction landing service and create a ticket in [our discord](https://discord.gg/2UfWGtUDtN) server.
 
-During onboarding you will be provided an API key for using the above services and rate limits will be applied according to flexible pricing plans. For custom setups for colocation and hop optimization setups, create a ticket on our discord server.
+During on-boarding you will be provided an API key for using the above services and rate limits will be applied according to flexible pricing plans. For custom setups for colocation and hop optimization setups, create a ticket on our discord server.
 {% endhint %}
