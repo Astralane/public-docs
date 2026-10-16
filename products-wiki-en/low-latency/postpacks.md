@@ -13,7 +13,13 @@ A post-pack is the leader's notification that a transaction has passed the point
 
 ### Connection
 
-Endpoint address: [http://fr.relay.astralane.io:30001](http://fr.relay.astralane.io:30001)
+Endpoint addresses
+
+* Frankfurt: [http://fr.relay.astralane.io:30001](http://fr.relay.astralane.io:30001/)
+* Amsterdam: [http://ams.relay.astralane.io:3001](http://ams.relay.astralane.io:3001/)
+* New York: [http://ny.relay.astralane.io:30001](http://ny.relay.astralane.io:30001/)
+* Singapore: [http://sg.relay.astralane.io:30001](http://sg.relay.astralane.io:30001/)
+* Tokyo: [http://jp.relay.astralane.io:30001](http://jp.relay.astralane.io:30001/)
 
 Auth: use `x-token` header with your API key to connect.
 
