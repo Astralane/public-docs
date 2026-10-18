@@ -9,14 +9,14 @@ icon: box-dollar
 
 A post-pack is the leader's notification that a transaction has passed the point of no return in its execution path. The transaction hasn't been executed yet, but its account locks are already held, so no conflicting transaction can be ordered ahead of it. Under normal conditions, it can no longer be front-run. Post-packs are currently the fastest way to learn that a transaction is being include in a Solana block.
 
-<table><thead><tr><th width="162.29296875"></th><th>Postpacks</th><th>Preconfs</th><th>Shreds</th></tr></thead><tbody><tr><td><strong>Emitted at</strong></td><td>Right <strong>before tx</strong> <strong>execution</strong>, after account locks are held</td><td>Right <strong>after</strong> <strong>tx</strong> <strong>execution</strong>, before including into the block.</td><td><strong>After including</strong> tx into the block.</td></tr><tr><td><strong>Execution Result</strong></td><td>Absent</td><td>Present</td><td>Present</td></tr><tr><td><strong>Tx index in the block</strong></td><td>Absent</td><td>Present</td><td>Present</td></tr><tr><td><strong>Landing probability</strong></td><td>Lower</td><td>High</td><td>High</td></tr><tr><td><strong>Latency</strong></td><td>High</td><td>Lower</td><td>Slowest</td></tr></tbody></table>
+<table><thead><tr><th width="162.29296875"></th><th>Postpacks/Pre</th><th>Preconfs</th><th>Shreds</th></tr></thead><tbody><tr><td><strong>Emitted at</strong></td><td>Right <strong>before tx</strong> <strong>execution</strong>, after account locks are held</td><td>Right <strong>after</strong> <strong>tx</strong> <strong>execution</strong>, before including into the block.</td><td><strong>After including</strong> tx into the block.</td></tr><tr><td><strong>Execution Result</strong></td><td>Absent</td><td>Present</td><td>Present</td></tr><tr><td><strong>Tx index in the block</strong></td><td>Absent</td><td>Present</td><td>Present</td></tr><tr><td><strong>Landing probability</strong></td><td>Lower</td><td>High</td><td>High</td></tr><tr><td><strong>Latency</strong></td><td>High</td><td>Lower</td><td>Slowest</td></tr></tbody></table>
 
 ### Connection
 
 Endpoint addresses
 
 * Frankfurt: [http://fr.relay.astralane.io:30001](http://fr.relay.astralane.io:30001/)
-* Amsterdam: [http://ams.relay.astralane.io:3001](http://ams.relay.astralane.io:3001/)
+* Amsterdam: [http://ams.relay.astralane.io:30001](http://ams.relay.astralane.io:3001/)
 * New York: [http://ny.relay.astralane.io:30001](http://ny.relay.astralane.io:30001/)
 * Singapore: [http://sg.relay.astralane.io:30001](http://sg.relay.astralane.io:30001/)
 * Tokyo: [http://jp.relay.astralane.io:30001](http://jp.relay.astralane.io:30001/)

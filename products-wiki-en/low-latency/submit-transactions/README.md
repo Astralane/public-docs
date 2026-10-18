@@ -139,6 +139,14 @@ If your operation depends on atomic txn execution then use our sendBundle endpoi
 
 Send up to **4 transactions** in a single atomic bundle. These transactions are executed **sequentially** , ensuring precision and reliability. If any transaction fails, the entire bundle is reverted—guaranteeing consistency and eliminating partial failures.&#x20;
 
+#### Bundle Usage Guidelines
+
+Please use `sendBundle` only when you need atomic execution of multiple transactions.
+
+* We recommend maintaining a bundle success rate of around 15–20%, as processing unsuccessful bundles is costly for us to support.
+* Bundle access may be temporarily disabled in cases of extremely low success rates if you haven’t received explicit approval from us to use bundles.
+* We do not recommend using `sendBundle` for a single transaction. For single transactions, please use `sendTransaction` instead.
+
 <table><thead><tr><th width="231">Parameter</th><th width="138">Type</th><th>Description</th></tr></thead><tbody><tr><td><pre><code>revertProtection
 </code></pre></td><td>Boolean</td><td>Optional, If a bundle only has 1 txn with this parameter as <code>false</code>, then it will also sent via <code>sentTransaction</code> pipeline. Default is <code>false</code></td></tr></tbody></table>
 

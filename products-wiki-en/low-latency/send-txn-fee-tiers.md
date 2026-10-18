@@ -14,7 +14,7 @@ Tier changes are immediate, downgrades are delayed by a grace period of 7 days.
 
 #### **Instant VIP upgrade**
 
-You can use the **Upgrade API key** option on the portal and pay the tip volume threshold of the tier you want (for example, 3 SOL in tips for VIP 1). You qualify at the next hourly evaluation. One large tip or many small tips, both count toward the same rolling volume.
+You can use the **Upgrade API key** option on the portal and pay the tip volume threshold of the tier you want (for example, 4 SOL in tips for VIP 1). You qualify at the next hourly evaluation. One large tip or many small tips, both count toward the same rolling volume.
 
 Users may view their current tier stats on [portal.astralane.io](http://portal.astralane.io)
 
@@ -40,13 +40,13 @@ No, all tiers receive the same scheduling priority, our routers run in pure FIFO
 
 <summary>How do these tiers work if i am actively tipping to Astralane?</summary>
 
-Suppose you move from the Free tier to VIP 1 after tipping more than 3 SOL over the previous rolling 7-day period. You are immediately upgraded and receive the benefits of VIP 1, including a reduced minimum tip of 0.0001 SOL per transaction, along with higher TPS limits for both single transaction and bundle transaction methods.
+Suppose you move from the Free tier to VIP 1 after tipping more than 4 SOL over the previous rolling 7-day period. You are immediately upgraded and receive the benefits of VIP 1, including a reduced minimum tip of 0.0001 SOL per transaction, along with higher TPS limits for both single transaction and bundle transaction methods.
 
-If your rolling 7-day tip volume later drops below the 3 SOL threshold (for example, to 2 SOL), you are not downgraded immediately. Instead, you remain on VIP 1 and continue receiving its benefits during a 7-day grace period. Only after the grace period expires, if your rolling volume is still below the required threshold, will you be downgraded back to the Free tier.
+If your rolling 7-day tip volume later drops below the 4 SOL threshold (for example, to 2 SOL), you are not downgraded immediately. Instead, you remain on VIP 1 and continue receiving its benefits during a 7-day grace period. Only after the grace period expires, if your rolling volume is still below the required threshold, will you be downgraded back to the Free tier.
 
 Similarly, suppose you move from VIP 1 to VIP 2 after exceeding the 5 SOL threshold, and your rolling 7-day volume later falls significantly below it (for example, to 2 SOL). You are not immediately downgraded. Instead, you remain on VIP 2 and continue receiving its benefits during a 7-day grace period.
 
-After the grace period ends, if your volume still does not qualify for VIP 2, you are downgraded one tier at a time, moving first to VIP 1. If your rolling volume still remains below the VIP 1 threshold (3 SOL), another 7-day grace period begins on VIP 1. Only after this second grace period, if your volume remains below the requirement, will you be downgraded to the Free tier.
+After the grace period ends, if your volume still does not qualify for VIP 2, you are downgraded one tier at a time, moving first to VIP 1. If your rolling volume still remains below the VIP 1 threshold (4 SOL), another 7-day grace period begins on VIP 1. Only after this second grace period, if your volume remains below the requirement, will you be downgraded to the Free tier.
 
 </details>
 
@@ -78,7 +78,7 @@ All users have access to check write lock contention on our public tip wallets u
 
 <summary>Can I upgrade to a VIP tier immediately?</summary>
 
-Yes. Use the Upgrade API key button on the portal and pay the threshold of any VIP tier in tips (3 / 5 / 8 SOL). Tiers are evaluated every hour, so your upgrade applies at the next hourly check, no waiting period for upgrades.
+Yes. Use the Upgrade API key button on the portal and pay the threshold of any VIP tier in tips (4 / 5 / 8 SOL). Tiers are evaluated every hour, so your upgrade applies at the next hourly check, no waiting period for upgrades.
 
 </details>
 
