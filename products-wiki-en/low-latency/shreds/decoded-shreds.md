@@ -20,7 +20,7 @@ Building your own deshred pipeline means handling:
 * Merkle proof validation;
 * Entry deserialization;
 * Duplicate/out-of-order shred handling;
-* Filtering out unrelated transactions (vote, failed, unimportant programs);
+* Filtering out unrelated transactions (vote, unimportant programs);
 * Resolving Address Lookup Table addresses.
 
 Getting this wrong costs latency - sometimes more than you gain from receiving raw shreds early in the first place. The Deshred Service centralizes this work on infrastructure tuned for it, so clients get decoded transactions at the same speed (or faster) than a naive in-house implementation, without maintaining the reconstruction logic themselves.
@@ -52,7 +52,7 @@ Proto file available here: [https://github.com/Astralane/shred-tools/blob/main/p
 
 #### Pricing
 
-As a early beta, Decoded Shreds are available for all active shred users (tier-1 and tier-2) until 1st September. Prices are subject of change afterwards.&#x20;
+Decoded Shreds are available for all active [tier-2 shred users](./#pricing-and-tips-setup).&#x20;
 
 ***
 
