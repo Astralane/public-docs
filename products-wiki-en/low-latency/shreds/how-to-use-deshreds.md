@@ -6,7 +6,7 @@ description: Technical details of Decoded Shreds usage
 
 #### 1. Connection
 
-<table><thead><tr><th width="157.98175048828125">Parameter</th><th>Value</th></tr></thead><tbody><tr><td>Protocol</td><td>gRPC (HTTP/2), plaintext or TLS — depends on the entry point</td></tr><tr><td>Service</td><td><code>geyser.Geyser</code></td></tr><tr><td>Method</td><td><code>SubscribeDeshred(stream SubscribeDeshredRequest) returns (stream SubscribeUpdateDeshred)</code></td></tr><tr><td>Address</td><td>issued with your API key (<code>deshred.bind_addr</code> in the hub config, e.g. <code>1.2.3.4:52000</code>)</td></tr></tbody></table>
+<table><thead><tr><th width="157.98175048828125">Parameter</th><th>Value</th></tr></thead><tbody><tr><td>Protocol</td><td>gRPC (HTTP/2), plaintext or TLS — depends on the entry point</td></tr><tr><td>Service</td><td><code>geyser.Geyser</code></td></tr><tr><td>Method</td><td><code>SubscribeDeshred(stream SubscribeDeshredRequest) returns (stream SubscribeUpdateDeshred)</code></td></tr><tr><td>Address</td><td>issued with your API key (<code>deshred.bind_addr</code> in the hub config, e.g. <code>1.2.3.4:12000</code>)</td></tr></tbody></table>
 
 **Authorization**
 
@@ -201,7 +201,7 @@ use tonic::{metadata::MetadataValue, transport::Channel, Request};
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
     let api_key = std::env::var("ASTRALANE_API_KEY")?;
-    let channel = Channel::from_static("http://HOST:52000").connect().await?;
+    let channel = Channel::from_static("http://HOST:12000").connect().await?;
 
     let token: MetadataValue<_> = api_key.parse()?;
     let mut client = GeyserClient::with_interceptor(channel, move |mut req: Request<()>| {
@@ -264,7 +264,7 @@ import base58, grpc, queue
 import geyser_pb2 as pb, geyser_pb2_grpc as pb_grpc
 
 API_KEY = "..."
-ENDPOINT = "HOST:52000"
+ENDPOINT = "HOST:12000"
 
 def requests(q):
     req = pb.SubscribeDeshredRequest()
