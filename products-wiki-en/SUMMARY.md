@@ -22,6 +22,10 @@
 * [Data Streams](low-latency/data-streams.md)
 * [Postpacks](low-latency/postpacks.md)
 
+## Bifrost (GBX)
+
+* [Submit Bundles](bifrost-gbx/submit-bundles.md)
+
 ***
 
 * [Astralane MCP](astralane-mcp.md)
