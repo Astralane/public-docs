@@ -18,7 +18,7 @@ All specifications provided on this page work across the following participating
 
 ### Endpoints
 
-<table><thead><tr><th width="139.34375">Region</th><th>gRPEndpoint</th></tr></thead><tbody><tr><td>Frankfurt</td><td><a href="http://fra-gbx.astralane.io:5064/">http://fra-gbx.astralane.io:5064</a></td></tr><tr><td>Amsterdam</td><td><a href="http://ams-gbx.astralane.io:5064/">http://ams-gbx.astralane.io:5064</a></td></tr><tr><td>London</td><td><a href="http://lon-gbx.gateway.astralane.io:5064/">http://lon-gbx.astralane.io:5064</a></td></tr><tr><td>Tokyo</td><td><a href="http://jp-gbx.astralane.io:5064/">http://jp-gbx.astralane.io:5064</a></td></tr></tbody></table>
+<table><thead><tr><th width="139.34375">Region</th><th>gRPC Endpoint</th></tr></thead><tbody><tr><td>Frankfurt</td><td><a href="http://fra-gbx.astralane.io:5064/">http://fra-gbx.astralane.io:5064</a></td></tr><tr><td>Amsterdam</td><td><a href="http://ams-gbx.astralane.io:5064/">http://ams-gbx.astralane.io:5064</a></td></tr><tr><td>London</td><td><a href="http://lon-gbx.gateway.astralane.io:5064/">http://lon-gbx.astralane.io:5064</a></td></tr><tr><td>Tokyo</td><td><a href="http://jp-gbx.astralane.io:5064/">http://jp-gbx.astralane.io:5064</a></td></tr></tbody></table>
 
 {% hint style="info" %}
 1. For best performance, we recommend only sending bundles to the closest geographical region. We automatically cross-forwards bundles to all GBX builder(s) in all regions, you do not need to send bundles to all regions or to the builder(s) individually.&#x20;
@@ -69,7 +69,7 @@ message Bundle {
 
 #### 3. Dropping Indices
 
-Transactions in bundles can be marked as droppable for paritial atomicity. If one fails, the GBX builder(s) drops just that member instead of voiding the whole bundle.
+Transactions in bundles can be marked as droppable for partial atomicity. If one fails, the GBX builder(s) drops just that member instead of voiding the whole bundle.
 
 `droppingIndices` lists the positions in the bundle the GBX builder(s) is **permitted** to omit. A member listed there is dropped only if it actually fails - either because it errored in the VM, or because its signature was already applied earlier in the window.
 
@@ -98,7 +98,7 @@ Some example scenarios:
 
 Target accounts can be specified when submitting bundles, this lets the GBX builder(s) know which accounts the bundle intends to affect, helping it identify and simulate them when state in these accounts changes.
 
-For example: You want to do a backrun after a change in AMM pool account, you can speicify the pool accoumt you are targetting, the bundle will be simulated after a write on that account. Limit the number of accounts specified to the absolute necessary in order to ensure better scheduling outcomes
+For example: You want to do a backrun after a change in AMM pool account, you can specify the pool account you are targeting, the bundle will be simulated after a write on that account. Limit the number of accounts specified to the absolute necessary in order to ensure better scheduling outcomes
 
 ```
 message Bundle {
