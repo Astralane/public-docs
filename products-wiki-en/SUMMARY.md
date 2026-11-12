@@ -22,9 +22,9 @@
 * [Data Streams](low-latency/data-streams.md)
 * [Postpacks](low-latency/postpacks.md)
 
-## Bifrost (GBX)
+## Gravity Block Exchange (GBX)
 
-* [Submit Bundles](bifrost-gbx/submit-bundles.md)
+* [Submit Bundles](gravity-block-exchange-gbx/submit-bundles.md)
 
 ***
 
