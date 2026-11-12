@@ -18,7 +18,7 @@ All specifications provided on this page work across the following participating
 
 ### Endpoints
 
-<table><thead><tr><th width="139.34375">Region</th><th>gRPEndpoint</th></tr></thead><tbody><tr><td>Frankfurt</td><td><a href="http://fra-gbx.gateway.astralane.io:5064/">http://fra-gbx.gateway.astralane.io:5064</a></td></tr><tr><td>Amsterdam</td><td><a href="http://ams-gbx.astralane.io:5064/">http://ams-gbx.astralane.io:5064</a></td></tr><tr><td>London</td><td><a href="http://lon-gbx.gateway.astralane.io:5064/">http://lon-gbx.astralane.io:5064</a></td></tr><tr><td>Tokyo</td><td><a href="http://jp-gbx.astralane.io:5064/">http://jp-gbx.astralane.io:5064</a></td></tr></tbody></table>
+<table><thead><tr><th width="139.34375">Region</th><th>gRPEndpoint</th></tr></thead><tbody><tr><td>Frankfurt</td><td><a href="http://fra-gbx.astralane.io:5064/">http://fra-gbx.astralane.io:5064</a></td></tr><tr><td>Amsterdam</td><td><a href="http://ams-gbx.astralane.io:5064/">http://ams-gbx.astralane.io:5064</a></td></tr><tr><td>London</td><td><a href="http://lon-gbx.gateway.astralane.io:5064/">http://lon-gbx.astralane.io:5064</a></td></tr><tr><td>Tokyo</td><td><a href="http://jp-gbx.astralane.io:5064/">http://jp-gbx.astralane.io:5064</a></td></tr></tbody></table>
 
 {% hint style="info" %}
 1. For best performance, we recommend only sending bundles to the closest geographical region. We automatically cross-forwards bundles to all GBX builder(s) in all regions, you do not need to send bundles to all regions or to the builder(s) individually.&#x20;
