@@ -98,7 +98,7 @@ Some example scenarios:
 
 Target accounts can be specified when submitting bundles, this lets the GBX builder(s) know which accounts the bundle intends to affect, helping it identify and simulate them when state in these accounts changes.
 
-For example: You want to do a backrun after a change in amm pool account, you can speicify the pool you are targetting, the bundle will be simulated on every time that pool state changes.
+For example: You want to do a backrun after a change in AMM pool account, you can speicify the pool accoumt you are targetting, the bundle will be simulated after a write on that account. Limit the number of accounts specified to the absolute necessary in order to ensure better scheduling outcomes
 
 ```
 message Bundle {
