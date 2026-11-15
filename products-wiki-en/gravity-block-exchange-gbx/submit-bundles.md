@@ -123,6 +123,10 @@ All GBX builders will support the `jitodontfront` memo convention, allowing tran
 
 There are no public rate limits on the above GBX endpoints. Kindly reach out to the team via our [discord server](https://discord.gg/t8anFGy8nN)&#x20;
 
+#### Tip Refunds <a href="#getting-access" id="getting-access"></a>
+
+Astralane Iris users (using [astra tip wallets](https://astralane.gitbook.io/docs/low-latency/endpoints-and-configs)) are automatically eligible to receive SOL tip refunds on GBX slots, if the transactions sent to our middleware executes successfully on chain for a lower price. Tip refunds do not change how transactions are executed and users do not need to make any changes to be eligible for them.
+
 #### More features? <a href="#getting-access" id="getting-access"></a>
 
 For custom support for oracle updates, ACE, etc. reach out to us on our [discord server](https://discord.gg/t8anFGy8nN).
