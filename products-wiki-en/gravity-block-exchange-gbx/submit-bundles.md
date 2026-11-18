@@ -21,7 +21,7 @@ All specifications provided on this page work across the following participating
 <table><thead><tr><th width="139.34375">Region</th><th>gRPC Endpoint</th></tr></thead><tbody><tr><td>Frankfurt</td><td><a href="http://fra-gbx.astralane.io:5064/">http://fra-gbx.astralane.io:5064</a></td></tr><tr><td>Amsterdam</td><td><a href="http://ams-gbx.astralane.io:5064/">http://ams-gbx.astralane.io:5064</a></td></tr><tr><td>London</td><td><a href="http://lon-gbx.gateway.astralane.io:5064/">http://lon-gbx.astralane.io:5064</a></td></tr><tr><td>Tokyo</td><td><a href="http://jp-gbx.astralane.io:5064/">http://jp-gbx.astralane.io:5064</a></td></tr></tbody></table>
 
 {% hint style="info" %}
-1. For best performance, we recommend only sending bundles to the closest geographical region. We automatically cross-forwards bundles to all GBX builder(s) in all regions, you do not need to send bundles to all regions or to the builder(s) individually.&#x20;
+1. For best performance, we recommend only sending bundles to the closest geographical region. We automatically cross-forwards bundles to all GBX builder(s) in all regions, you do not need to send bundles to all regions or to the builder(s) individually.
 2. Using an IPv4 address will be **faster**
 {% endhint %}
 
@@ -29,29 +29,31 @@ All specifications provided on this page work across the following participating
 
 The GBX protocol buffer definitions are available here:
 
-* &#x20;[https://github.com/Astralane/gbx-protos](https://github.com/Astralane/gbx-protos)&#x20;
+* [https://github.com/Astralane/gbx-protos](https://github.com/Astralane/gbx-protos)
 
-The GBX SearcherService.SendBundle gRPC and authentication flow are backwards compatible with Jito's searcher protos. This means existing Jito client code can be adapted with minimal changes: primarily updating the endpoint URL and proto imports.&#x20;
+The GBX SearcherService.SendBundle gRPC and authentication flow are backwards compatible with Jito's searcher protos. This means existing Jito client code can be adapted with minimal changes: primarily updating the endpoint URL and proto imports.
 
-### Tipping  <a href="#tipping" id="tipping"></a>
+### Tipping <a href="#tipping" id="tipping"></a>
 
 For prioritization on Gravity block exchange slots, pay simply in priority fees on transactions, transfers to a designated tip accounts are not required.
 
-Minimum priority fee of 5000 lamports. Higher fees will result in higher priority.&#x20;
+Minimum priority fee of 5000 lamports. Higher fees will result in higher priority.
 
-For oracle updates out to us on [discord](https://discord.gg/t8anFGy8nN) for custom submission methods with lower limits.&#x20;
+For oracle updates reach out to us on [discord](https://discord.gg/t8anFGy8nN) for custom submission methods with lower limits.
 
 ### Getting access <a href="#getting-access" id="getting-access"></a>
 
-Before you can send bundles through the authenticated `searcher.SearcherService`, your searcher pubkey must be whitelisted by the Astralane team.
+Authenticate with any keypair using the standard Jito searcher auth flow (`GenerateAuthChallenge` → `GenerateAuthTokens`), then pass the access token as a Bearer header on every request. No whitelisting needed.
 
-Authenticated searchers get higher rate limits. If the public rate limits are enough for your flow, public submission over `searcher.BundleService` or JSON-RPC is also available without authentication.
+Without registration you get 5 requests/s per key per region, and every bundle needs at least 5,000 lamports in priority fees. Want higher limits or no fee minimum? Ping us on [discord](https://discord.gg/t8anFGy8nN) and we'll register your pubkey.
 
 ### Current Features <a href="#getting-access" id="getting-access"></a>
 
-#### 1. Revert Protection&#x20;
+#### 1. Revert Protection
 
-The above interface for GBX provides revert protection for submitted bundles. If any transaction in your bundle reverts, the entire bundle is dropped and will not land on-chain.&#x20;
+The GBX interface provides revert protection for submitted bundles. If any transaction reverts, the entire bundle is dropped and does not land on-chain.
+
+Bundles using `dropping_indices` are an exception. A listed transaction may be omitted if it fails, while the remaining transactions proceed.
 
 #### 2. Target Slot for execution
 
@@ -118,10 +120,6 @@ message Bundle {
 #### **5. `jitodontfront` support**
 
 All GBX builders will support the `jitodontfront` memo convention, allowing transactions that include this flag to receive front-running protection. Bundles attempting to front-run flagged transactions will be rejected by the builders, giving applications and traders an additional layer of protection. We follow standards set by builders when interacting with the Solana ecosystem if any additional ix marker restrictions are required, kindly do reach out to us.
-
-#### Rate Limits <a href="#getting-access" id="getting-access"></a>
-
-There are no public rate limits on the above GBX endpoints. Kindly reach out to the team via our [discord server](https://discord.gg/t8anFGy8nN)&#x20;
 
 #### More features? <a href="#getting-access" id="getting-access"></a>
 
