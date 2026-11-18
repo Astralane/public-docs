@@ -1,30 +1,47 @@
 # Table of contents
 
 * [Welcome to Astralane](README.md)
+* [Quickstart](start-here/quickstart.md)
+* [Access and support](start-here/access-and-support.md)
 
-## 🚅 Low Latency
+## Send transactions
 
-* [QuickStart](low-latency/quickstart.md)
-* [Endpoints and Configs](low-latency/endpoints-and-configs/README.md)
-  * [Changelogs](low-latency/endpoints-and-configs/changelogs.md)
-* [Send Txn Fee Tiers](low-latency/send-txn-fee-tiers.md)
-* [Submit Transactions](low-latency/submit-transactions/README.md)
-  * [QUIC Transaction Submission](low-latency/submit-transactions/quic-transaction-submission.md)
-  * [WebSocket Transaction Submission](low-latency/submit-transactions/websocket-transaction-submission.md)
-  * [Send in Plain Text](low-latency/submit-transactions/send-in-plain-text.md)
-  * [Send Ghost Transaction](low-latency/submit-transactions/send-ghost-transaction.md)
-  * [Send in Binary](low-latency/submit-transactions/send-in-binary.md)
-  * [Tip Stream](low-latency/submit-transactions/tip-stream.md)
-  * [Keep alive / Healthy Ping](low-latency/submit-transactions/keep-alive-healthy-ping.md)
-  * [Tip Refunds](low-latency/submit-transactions/tip-refunds.md)
-* [Shreds](low-latency/shreds/README.md)
-  * [Decoded Shreds](low-latency/shreds/decoded-shreds.md)
+* [Choose how to send](send-transactions/README.md)
+* [Regions and endpoints](send-transactions/regions-and-endpoints.md)
+* [Tips and fees](send-transactions/tips-and-fees.md)
+* [MEV protection](send-transactions/mev-protection.md)
+* [Bundles](send-transactions/bundles.md)
+* [sendIdeal and durable nonces](send-transactions/send-ideal.md)
+* [Ghost transactions](send-transactions/ghost-transactions.md)
+* [QUIC](send-transactions/quic.md)
+* [WebSocket](send-transactions/websocket.md)
+* [Plain text](send-transactions/plain-text.md)
+* [Binary](send-transactions/binary.md)
+* [Keep connections warm](send-transactions/keep-alive.md)
+* [Tip refunds](send-transactions/tip-refunds.md)
+
+## Data streams
+
+* [Shreds](data-streams/shreds.md)
+* [Decoded shreds](data-streams/decoded-shreds/README.md)
+* [Postpacks](data-streams/postpacks.md)
+* [Tip stream](data-streams/tip-stream.md)
 * [Data Streams](low-latency/data-streams.md)
-* [Postpacks](low-latency/postpacks.md)
 
 ## Gravity Block Exchange (GBX)
 
 * [Submit Bundles](gravity-block-exchange-gbx/submit-bundles.md)
+
+## API reference
+
+* [All methods](api-reference/README.md)
+* [sendTransaction](api-reference/sendtransaction.md)
+
+## Help
+
+* [Pricing and limits](help/pricing-and-limits.md)
+* [Troubleshooting](help/troubleshooting.md)
+* [Changelog](help/changelog.md)
 
 ***
 

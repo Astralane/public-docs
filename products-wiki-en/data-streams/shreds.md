@@ -80,21 +80,27 @@ Instead of hard monthly commitments, we provide a pay-as-you-use model. If you a
 
 **What the tiers mean**
 
-Your tier controls how many&#x20;validator-direct shred sources you receive. A higher tier covers more leaders,&#x20;which lowers your effective shred latency — you see more of the network's blocks&#x20;earlier.&#x20;
+Your tier controls how many
+&#x20;validator-direct shred sources you receive. A higher tier covers more leaders,
+&#x20;which lowers your effective shred latency — you see more of the network's blocks
+&#x20;earlier.&#x20;
 
 * **Tier-1** gives baseline coverage, enough for development and testing;
-* **Tier-2** unlocks broader leader coverage for ultra-low-latency production  \
+* **Tier-2** unlocks broader leader coverage for ultra-low-latency production
+  \
   workloads where every millisecond counts.
 
 You can check your current tier and 24h tips at [https://portal.astralane.io/shreds](https://portal.astralane.io/shreds)
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 #### Grace period & downgrades
 
-As soon as you cross a tier's 24h tip threshold, you are upgraded immediately.\
+As soon as you cross a tier's 24h tip threshold, you are upgraded immediately.
+\
 If your trailing-24h tips drop below your current tier, you are not dropped instantly. You keep the tier for a 24h grace window, then fall back one tier down.\
-\
+
+\
 Downgrades step down one tier at a time (tier-2 → tier-1), never straight to no-access.
 
 {% hint style="info" icon="info" %}
@@ -166,7 +172,7 @@ if astralane_shred_was_a_source_signal() {
 
 Send your [POST request](./#how-your-tips-get-counted) to the endpoint closest to your infra:
 
-<table><thead><tr><th width="272.22222900390625">Region</th><th>HTTP Endpoint</th></tr></thead><tbody><tr><td>Global Edge Endpoint</td><td><a href="https://edge.astralane.io/shred-pay?api-key=xxxx">https://edge.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Frankfurt (Recommended)</td><td><a href="http://fr.gateway.astralane.io/shred-pay?api-key=xxxx">http://fr.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Frankfurt</td><td><a href="http://fr2.gateway.astralane.io/shred-pay?api-key=xxxx">http://fr2.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>San Francisco</td><td><a href="http://la.gateway.astralane.io/shred-pay?api-key=xxxx">http://la.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Tokyo</td><td><a href="http://jp.gateway.astralane.io/shred-pay?api-key=xxxx">http://jp.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>New York</td><td><a href="http://ny.gateway.astralane.io/shred-pay?api-key=xxxx">http://ny.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Amsterdam (Recommended)</td><td><a href="http://ams.gateway.astralane.io/shred-pay?api-key=xxxx">http://ams.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Amsterdam 2</td><td><a href="http://ams2.gateway.astralane.io/shred-pay?api-key=xxxx">http://ams2.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Limburg</td><td><a href="http://lim.gateway.astralane.io/shred-pay?api-key=xxxx">http://lim.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Singapore</td><td><a href="http://sg.gateway.astralane.io/shred-pay?api-key=xxxx">http://sg.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Lithuania</td><td><a href="http://lit.gateway.astralane.io/shred-pay?api-key=xxxx">http://lit.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>London</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="272.22222900390625">Region</th><th>HTTP Endpoint</th></tr></thead><tbody><tr><td>Global Edge Endpoint</td><td><a href="https://edge.astralane.io/shred-pay?api-key=xxxx">https://edge.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Frankfurt (Recommended)</td><td><a href="http://fr.gateway.astralane.io/shred-pay?api-key=xxxx">http://fr.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Frankfurt</td><td><a href="http://fr2.gateway.astralane.io/shred-pay?api-key=xxxx">http://fr2.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>San Francisco</td><td><a href="http://la.gateway.astralane.io/shred-pay?api-key=xxxx">http://la.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Tokyo</td><td><a href="http://jp.gateway.astralane.io/shred-pay?api-key=xxxx">http://jp.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>New York</td><td><a href="http://ny.gateway.astralane.io/shred-pay?api-key=xxxx">http://ny.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Amsterdam (Recommended)</td><td><a href="http://ams.gateway.astralane.io/shred-pay?api-key=xxxx">http://ams.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Amsterdam 2</td><td><a href="http://ams2.gateway.astralane.io/shred-pay?api-key=xxxx">http://ams2.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Limburg</td><td><a href="http://lim.gateway.astralane.io/shred-pay?api-key=xxxx">http://lim.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Singapore</td><td><a href="http://sg.gateway.astralane.io/shred-pay?api-key=xxxx">http://sg.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr><tr><td>Lithuania</td><td><a href="http://lit.gateway.astralane.io/shred-pay?api-key=xxxx">http://lit.gateway.astralane.io/shred-pay?api-key=xxxx</a></td></tr></tbody></table>
 
 {% hint style="info" icon="info" %}
 Get your API key from the Astralane portal. Requests without a valid key are rejected.
@@ -178,8 +184,8 @@ You can connect your shred stream directly through the [Astralane](https://astra
 
 Currently supported regions:&#x20;
 
-* FRA (shred relay is on Fra2 Terraswitch and Cherry for co-location)
-* NY (shred relay is on Ewr2 Terraswitch for co-location)
+* FRA (shred relay is on Fra2 TeraSwitch and Cherry for co-location)
+* NY (shred relay is on Ewr2 TeraSwitch for co-location)
 
 ### Examples & Code
 
@@ -314,14 +320,18 @@ fn main() {
 
 ### Latency monitor
 
-Measure and compare end-to-end latency of your shred feed against gRPC endpoints – see who sees each transaction first.
 
-\
+Measure and compare end-to-end latency of your shred feed against gRPC endpoints – see who sees each transaction first.
+
+
+\
 `shreds-latency-probe`  listens to your UDP shred feed and connects to yellowstone-gRPC endpoints simultaneously. For every transaction, it tracks which source arrived first and measures the lag in microseconds.
 
-\
+
+\
 Output: a live TUI with real-time counters and a zip archive with raw CSVs and summary tables for offline analysis.\
-\
+
+\
 View source on [GitHub](https://github.com/Astralane/shreds-monitor).
 
 ### FAQ&#x20;
@@ -338,7 +348,7 @@ Tiers determine how many validator-direct shred sources you receive: higher tier
 
 <summary>2. Which regions do you operate in?</summary>
 
-We operate out of two regions: Frankfurt at Fra2, Terraswitch DC and New York at Ewr2.
+We operate out of two regions: Frankfurt at Fra2, TeraSwitch DC and New York at Ewr2.
 
 </details>
 

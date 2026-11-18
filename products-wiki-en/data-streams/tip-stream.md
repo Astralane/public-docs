@@ -10,7 +10,7 @@ Live percentile snapshot of tip sizes paid by transactions **landed through Astr
 
 A rolling snapshot with five percentile buckets of the tip amounts (in **lamports**) paid by transactions that Astralane **successfully landed** in the last 15 minutes:
 
-* `landed_tips_25th_percentile` - 25% of landed tips were at or below this (not recommeded)
+* `landed_tips_25th_percentile` - 25% of landed tips were at or below this (not recommended)
 * `landed_tips_50th_percentile` - the median landed tip
 * `landed_tips_75th_percentile`
 * `landed_tips_95th_percentile`

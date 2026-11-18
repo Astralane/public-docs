@@ -36,7 +36,7 @@ The request body must contain the base64-encoded signed transaction.
 The transaction itself must not contain a tip transfer.
 
 ```shellscript
-// Some codecurl --location 'https://lim.gateway.astralane.io/iris2?api-key=APIKEY&method=sendGhostTransaction&tip=1000000' \
+curl --location 'https://lim.gateway.astralane.io/iris2?api-key=APIKEY&method=sendGhostTransaction&tip=1000000' \
 --header 'Content-Type: text/plain' \
 --data 'base64_encoded_txn'
 ```

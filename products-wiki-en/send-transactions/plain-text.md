@@ -195,7 +195,7 @@ func main() {
 ```shellscript
 curl --location 'https://lim.gateway.astralane.io/iris2?api-key=APIKEY&method=sendBatch' \
 --header 'Content-Type: text/plain' \
---data 'base64_encoded_txn1,base64_encoded_txn2,base64_encoded_txn3' // coma seperated values
+--data 'base64_encoded_txn1,base64_encoded_txn2,base64_encoded_txn3' // comma-separated values
 ```
 
 #### Expected Response

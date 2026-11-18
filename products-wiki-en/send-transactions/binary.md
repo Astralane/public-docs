@@ -79,7 +79,7 @@ async function sendBinaryTransaction(
 ): Promise<void> {
   const txBytes: Uint8Array = transaction.serialize();
 
-  const url = `https://<location>.gateway.astralane.io/irisb?api-key=${apiKey}&method=SendTransaction`;
+  const url = `https://<location>.gateway.astralane.io/irisb?api-key=${apiKey}&method=sendTransaction`;
 
   const response = await fetch(url, {
     method: "POST",
