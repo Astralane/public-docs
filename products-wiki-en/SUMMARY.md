@@ -15,6 +15,7 @@
   * [Send Ghost Transaction](low-latency/submit-transactions/send-ghost-transaction.md)
   * [Send in Binary](low-latency/submit-transactions/send-in-binary.md)
   * [Tip Stream](low-latency/submit-transactions/tip-stream.md)
+  * [Tip in tokens or ALTs](low-latency/submit-transactions/tip-in-tokens-or-alts.md)
   * [Keep alive / Healthy Ping](low-latency/submit-transactions/keep-alive-healthy-ping.md)
   * [Tip Refunds](low-latency/submit-transactions/tip-refunds.md)
 * [Shreds](low-latency/shreds/README.md)

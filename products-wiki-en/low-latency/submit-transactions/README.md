@@ -15,7 +15,7 @@ Astralane provides a multitude of options for your needs, here are some of RPC m
 🚀 For the fastest transaction execution, we recommend using our `sendTransaction` method.
 {% endhint %}
 
-This RPC call is fully compatible with all Solana libraries, making it a simple drop-in replacement for your existing workflows. It routes through our partner **SWQoS** clients, including **Jito** and **Paladin** (higher min tip), and provides direct routing to leading **block builders** like **Harmonic** and **BAM**. Additionally, it supports integration with **custom schedulers** such as **Rakurai**, ensuring optimized transaction processing, reduced latency, and maximum reliability across the network.
+This RPC call is fully compatible with all Solana libraries, making it a simple drop-in replacement for your existing workflows. It routes through our partner **SWQoS** clients, including **Jito Block engine** and provides direct routing to leading **block builders** like **Harmonic, BAM DBI and Gravity Block Exchange**. Additionally, it supports integration with **custom TPU/Bundle private lanes** such as **Rakurai and others\*\*** ensuring optimized transaction processing, reduced latency, and maximum reliability across the network.
 
 Just insert the URL where you would place a RPC URL and send your txns how you send normally. The only change is to add an instruction to tip.
 
@@ -88,7 +88,7 @@ Example Error Response JSON :
 {% tab title="Rust" %}
 <pre class="language-rust"><code class="lang-rust"><strong>
 </strong>const TIP: Pubkey = pubkey!("astra4uejePWneqNaJKuFFA8oonqCE1sqF6b45kDMZm"); // Use tip wallet depending on region of access
-const MIN_TIP_AMOUNT: u64 = 10000; // added for spam prevention
+const MIN_TIP_AMOUNT: u64 = 1000000; // added for spam prevention
 
 fn send_tx_tipped(
     ixs: &#x26;mut Vec&#x3C;Instruction>,
@@ -137,23 +137,22 @@ Please do note that the sendTransaction endpoint supports **max\_retries** featu
 
 If your operation depends on atomic txn execution then use our sendBundle endpoint to send atomically executing transactions.
 
-Send up to **4 transactions** in a single atomic bundle. These transactions are executed **sequentially** , ensuring precision and reliability. If any transaction fails, the entire bundle is reverted—guaranteeing consistency and eliminating partial failures.&#x20;
+Send up to **4 transactions** in a single atomic bundle. These transactions are executed **sequentially** , ensuring precision and reliability. If any transaction fails, the entire bundle is reverted - guaranteeing consistency and eliminating partial failures.&#x20;
 
 #### Bundle Usage Guidelines
 
 Please use `sendBundle` only when you need atomic execution of multiple transactions.
 
-* We recommend maintaining a bundle success rate of around 15–20%, as processing unsuccessful bundles is costly for us to support.
-* Bundle access may be temporarily disabled in cases of extremely low success rates if you haven’t received explicit approval from us to use bundles.
-* We do not recommend using `sendBundle` for a single transaction. For single transactions, please use `sendTransaction` instead.
+* We recommend maintaining a bundle success rate of around 15–20%, as processing unsuccessful bundles is costly for us to support. Bundle access may be temporarily disabled in cases of extremely low success rates if you haven’t received explicit approval from us to use bundles.
+* We do not recommend using `sendBundle` for a single transaction. For single transactions, please use `sendTransaction` instead. If you are using sendBundle method for low CU orders then kindly make sure to maintain a healthy landing rate and healthy amount of astralane tips. Reach out on discord for reccomended setups.
 
-<table><thead><tr><th width="231">Parameter</th><th width="138">Type</th><th>Description</th></tr></thead><tbody><tr><td><pre><code>revertProtection
-</code></pre></td><td>Boolean</td><td>Optional, If a bundle only has 1 txn with this parameter as <code>false</code>, then it will also sent via <code>sentTransaction</code> pipeline. Default is <code>false</code></td></tr></tbody></table>
+<table><thead><tr><th width="148.12890625">Parameter</th><th width="76.72265625">Type</th><th>Description</th></tr></thead><tbody><tr><td><pre><code>revertProtection
+</code></pre></td><td>Boolean</td><td>Optional, If a bundle only has 1 txn with this parameter as <code>false</code>, then it will also sent via <code>sentTransaction</code> pipeline. Default is <code>false</code> When enabled doesnt send txns via normal TPU pathway and only uses private bundle pathways</td></tr></tbody></table>
 
 {% tabs %}
 {% tab title="Rust" %}
 <pre class="language-rust"><code class="lang-rust">const TIP: Pubkey = pubkey!("astra4uejePWneqNaJKuFFA8oonqCE1sqF6b45kDMZm"); // Use tip wallet depending on region of access
-const MIN_TIP_AMOUNT: u64 = 10000; // added for spam prevention
+const MIN_TIP_AMOUNT: u64 = 1000000; // added for spam prevention
 
 <strong>async fn send_bundle(
 </strong>    ixs: &#x26;mut Vec&#x3C;Instruction>,
@@ -227,7 +226,7 @@ func main() {
 	tx, err := solana.NewTransaction(
 		[]solana.Instruction{
 			system.NewTransferInstruction(
-				200_000,
+				1_000_000,
 				signer.PublicKey(),
 				astralaneTipAddress,
 			).Build(),
@@ -410,7 +409,7 @@ To use this nonce, just include an **advance nonce instruction** as the first in
 
 ```rust
 const TIP: Pubkey = pubkey!("astra4uejePWneqNaJKuFFA8oonqCE1sqF6b45kDMZm"); // Use tip wallet depending on region of access
-const MIN_TIP_AMOUNT: u64 = 10000; // added for spam prevention
+const MIN_TIP_AMOUNT: u64 = 1000000; // added for spam prevention
 
 async fn send_ideal(
     signer: &Keypair,
@@ -526,7 +525,7 @@ import * as bs58 from 'bs58';
       const toPublicKey = new PublicKey(
         'astra4uejePWneqNaJKuFFA8oonqCE1sqF6b45kDMZm',
       );
-      const MIN_TIP_AMOUNT = 10000;
+      const MIN_TIP_AMOUNT = 1000000;
 
       const lowTipHighFeeIx = [
         advanceNonce,

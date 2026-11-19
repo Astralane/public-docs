@@ -54,7 +54,7 @@ After the grace period ends, if your volume still does not qualify for VIP 2, yo
 
 <summary>How do i get access to sendBundle?</summary>
 
-Available in the Free tier. This feature is available for all users at different TPS according to the current tier.
+Available from VIP 1, 2 and 3 only. This feature is available for all users at different TPS according to their current\*\* tier.
 
 </details>
 
@@ -81,5 +81,3 @@ All users have access to check write lock contention on our public tip wallets u
 Yes. Use the Upgrade API key button on the portal and pay the threshold of any VIP tier in tips (4 / 5 / 8 SOL). Tiers are evaluated every hour, so your upgrade applies at the next hourly check, no waiting period for upgrades.
 
 </details>
-
-*
