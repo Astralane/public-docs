@@ -2,9 +2,9 @@
 icon: recycle
 ---
 
-# Tip Refunds
+# Tip refunds
 
-Astralane Iris users can receive SOL tip refunds once refunds are enabled on their API key, if the transactions sent to our middleware executes successfully on chain for a lower price. Tip refunds do not change how transactions are executed and users do not need to make any changes to be eligible for them.&#x20;
+Astralane Iris users can receive SOL tip refunds once refunds are enabled on their API key, if the transactions sent to our middleware executes successfully on chain for a lower price. Tip refunds do not change how transactions are executed. Refunds apply to `sendTransaction` and `sendBundle` sent over JSON-RPC (`/iris`).&#x20;
 
 Refunds are calculated on SOL tips only. Tips paid in WSOL, USDC or USDT are not refunded.
 
@@ -35,7 +35,7 @@ Transactions which are sent directly to Astralane without using advanced nonce o
 {% hint style="info" %}
 Usually sending txns via our `sendTransaction` method results in faster execution and higher rewards, as it skips the auction time and lands through our internal swqos network.&#x20;
 
-Other methods like `sendBundle` and `sendIdeal` also qualify for tip rebates - however depends on the configs used for those methods. &#x20;
+`sendBundle` also qualifies for tip rebates - however depends on the configs used for it. &#x20;
 
 Since transaction sending is always latency sensitive, in order to improve inclusion in blocks, we recommend users to get a collocated server with us.
 {% endhint %}

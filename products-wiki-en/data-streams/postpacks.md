@@ -56,8 +56,10 @@ Content-Type: application/json
 **Response format:**
 
 ```json
-{ "accepted": ["<your transaction signature>"] }
+{ "accepted": ["<your transaction signature>"], "errors": [] }
 ```
+
+Rejected transactions are listed in `errors` with their `index`, `signature` and `error`. The request still returns `200`.
 
 You can land your transactions anywhere — Iris or any other provider. That part is entirely up to you.\
 

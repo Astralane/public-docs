@@ -17,12 +17,11 @@ Send up to **4 transactions** in a single atomic bundle. These transactions are 
 
 Please use `sendBundle` only when you need atomic execution of multiple transactions. Bundles are enabled per API key: see [Access and support](../start-here/access-and-support.md).
 
-* We recommend maintaining a bundle success rate of around 15–20%, as processing unsuccessful bundles is costly for us to support.
-* Bundle access may be temporarily disabled in cases of extremely low success rates if you haven’t received explicit approval from us to use bundles.
-* We do not recommend using `sendBundle` for a single transaction. For single transactions, please use `sendTransaction` instead.
+* We recommend maintaining a bundle success rate of around 15–20%, as processing unsuccessful bundles is costly for us to support. Bundle access may be temporarily disabled in cases of extremely low success rates if you haven’t received explicit approval from us to use bundles.
+* We do not recommend using `sendBundle` for a single transaction. For single transactions, please use `sendTransaction` instead. If you use `sendBundle` for low-CU orders, keep a healthy landing rate and healthy Astralane tips. Reach out on Discord for recommended setups.
 
 <table><thead><tr><th width="231">Parameter</th><th width="138">Type</th><th>Description</th></tr></thead><tbody><tr><td><pre><code>revertProtection
-</code></pre></td><td>Boolean</td><td>Optional, If a bundle only has 1 txn with this parameter as <code>false</code>, then it will also be sent through the <code>sendTransaction</code> pipeline. Default is <code>false</code></td></tr></tbody></table>
+</code></pre></td><td>Boolean</td><td>Optional, If a bundle only has 1 txn with this parameter as <code>false</code>, then it will also be sent through the <code>sendTransaction</code> pipeline. Default is <code>false</code>. When enabled, transactions are not sent through the normal TPU pathway, only through private bundle pathways</td></tr></tbody></table>
 
 {% tabs %}
 {% tab title="Rust" %}
@@ -55,9 +54,7 @@ const MIN_TIP_AMOUNT: u64 = 1_000_000; // 0.001 SOL, the free-tier minimum
 </code></pre>
 {% endtab %}
 
-{% tab title="Golang" %}
-_Code example for sendBundle in Go:_
-
+{% tab title="Go" %}
 ```go
 package main
 
@@ -174,8 +171,6 @@ func sendBundleRequest(endpoint string, payload map[string]interface{}) (string,
 	return string(responseBytes), nil
 }
 ```
-
-For further explanation please refer Rust docs on step by step details on whats happening.
 {% endtab %}
 {% endtabs %}
 

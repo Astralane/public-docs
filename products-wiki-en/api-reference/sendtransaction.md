@@ -5,7 +5,7 @@ icon: code
 
 # sendTransaction
 
-Sends one signed transaction. Iris routes it through staked connections, Jito, Harmonic and block builders at the same time, and returns the signature as soon as it accepts the transaction.
+Sends one signed transaction. Iris routes it through staked connections, Jito, Harmonic, Gravity Block Exchange and block builders at the same time, and returns the signature as soon as it accepts the transaction.
 
 | | |
 | --- | --- |
@@ -72,7 +72,7 @@ Sends one signed transaction. Iris routes it through staked connections, Jito, H
 | HTTP `405` | | The method is not available on this path | Use the path listed for the method |
 | HTTP `429` | | Over your per-second rate limit | Slow down or move up a tier |
 
-Over plain text and binary, the same errors come back as HTTP `400` with `{"error": "<message>"}`. QUIC and WebSocket return nothing: invalid or over-limit transactions are dropped.
+Over plain text and binary, errors come back as `{"error": "<message>"}` without the `Invalid Request:` or `Internal Error:` prefix, with HTTP `400`, or `500` if Iris could not forward the transaction. QUIC and WebSocket return nothing: invalid or over-limit transactions are dropped.
 
 ## Example
 
@@ -98,7 +98,7 @@ const { result, error } = await res.json();
 use base64::{engine::general_purpose::STANDARD, Engine};
 use serde_json::{json, Value};
 
-// `tx` is your signed Transaction or VersionedTransaction
+// `tx` is your signed legacy or v0 transaction
 let url = format!(
     "https://fr.gateway.astralane.io/iris?api-key={}",
     std::env::var("ASTRALANE_API_KEY")?
@@ -118,7 +118,7 @@ let (signature, error) = (res["result"].as_str(), res.get("error"));
 ```python
 import base64, os, requests
 
-# `tx` is your signed solders Transaction or VersionedTransaction
+# `tx` is your signed legacy or v0 solders transaction
 url = f"https://fr.gateway.astralane.io/iris?api-key={os.environ['ASTRALANE_API_KEY']}"
 res = requests.post(url, json={
     "jsonrpc": "2.0",

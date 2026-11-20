@@ -23,14 +23,16 @@ if you don't want to manage the durable nonce accounts on your own we also provi
 #### **Step 1 : Generate Nonce instruction**
 
 ```rust
+use serde_json::json;
 use solana_sdk::hash::Hash;
 use solana_sdk::pubkey::Pubkey;
 use solana_sdk::signature::{EncodableKey, Keypair, Signer};
+use std::str::FromStr;
 
 async fn get_nonce(
     client: reqwest::Client,
     url: String,
-    auth_key: String,
+    api_key: String,
 ) {
     let response = client
         .post(url)
@@ -42,7 +44,11 @@ async fn get_nonce(
             "params": [api_key], // provided during onboarding
         }))
         .send()
-        .await;
+        .await
+        .unwrap()
+        .json::<serde_json::Value>()
+        .await
+        .unwrap();
     let result = response["result"].clone();
     let nonce = result["nonce"].as_str().unwrap();
     let nonce_account = Pubkey::from_str(result["nonceAccount"].as_str().unwrap()).unwrap();
@@ -52,17 +58,13 @@ async fn get_nonce(
 }
 ```
 
-{% hint style="info" %}
-if you already have an existing nonce account, you can just pass in your nonce account, you can simply pass in your nonce account public key instead of the API key. The response will still include your parsed nonce.
-{% endhint %}
-
 To use this nonce, just include an **advance nonce instruction** as the first instruction in your transactions.
 
 #### **Step 2 : Generate your txn and Partial Sign it before submission**
 
 ```rust
 const TIP: Pubkey = pubkey!("astra4uejePWneqNaJKuFFA8oonqCE1sqF6b45kDMZm"); // Use tip wallet depending on region of access
-const MIN_TIP_AMOUNT: u64 = 10000; // added for spam prevention
+const MIN_TIP_AMOUNT: u64 = 1_000_000; // 0.001 SOL, the free-tier minimum
 
 async fn send_ideal(
     signer: &Keypair,
@@ -122,9 +124,7 @@ When using Astralane's managed nonce accounts, ensure that you use the **partial
 {% endhint %}
 {% endtab %}
 
-{% tab title="Typescript" %}
-_Code example for sendIdeal endpoint usage in TypeScript given below:_
-
+{% tab title="JavaScript" %}
 ```javascript
 import {
   Connection,
@@ -178,7 +178,7 @@ import * as bs58 from 'bs58';
       const toPublicKey = new PublicKey(
         'astra4uejePWneqNaJKuFFA8oonqCE1sqF6b45kDMZm',
       );
-      const MIN_TIP_AMOUNT = 10000;
+      const MIN_TIP_AMOUNT = 1_000_000; // 0.001 SOL, the free-tier minimum
 
       const lowTipHighFeeIx = [
         advanceNonce,
@@ -251,7 +251,7 @@ import * as bs58 from 'bs58';
   }
 ```
 
-For further explanation please refer Rust docs on step by step details on whats happening.
+For a step-by-step explanation, see the Rust tab.
 {% endtab %}
 {% endtabs %}
 

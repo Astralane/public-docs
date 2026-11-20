@@ -90,7 +90,7 @@ const { result: signature, error } = await res.json();
 use base64::{engine::general_purpose::STANDARD, Engine};
 use serde_json::{json, Value};
 
-// `tx` is your signed Transaction or VersionedTransaction
+// `tx` is your signed legacy or v0 transaction
 let url = format!(
     "https://fr.gateway.astralane.io/iris?api-key={}",
     std::env::var("ASTRALANE_API_KEY")?
@@ -110,7 +110,7 @@ let (signature, error) = (res["result"].as_str(), res.get("error"));
 ```python
 import base64, os, requests
 
-# `tx` is your signed solders Transaction or VersionedTransaction
+# `tx` is your signed legacy or v0 solders transaction
 url = f"https://fr.gateway.astralane.io/iris?api-key={os.environ['ASTRALANE_API_KEY']}"
 res = requests.post(url, json={
     "jsonrpc": "2.0",

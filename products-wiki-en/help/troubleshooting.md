@@ -27,7 +27,7 @@ Check these in order. Most problems are the first three.
 5. **Throttled for a low landing rate.** If almost none of your transactions land, the Astralane team may lower your limits for a while. The portal shows your status.
 6. **Priority fee too low.** Leaders that do not run Jito weigh the priority fee, not the tip. Set a normal compute unit price, or use [sendIdeal](../send-transactions/send-ideal.md).
 7. **Bundle reverted.** If one transaction in a bundle fails, none of them land. Simulate each transaction first.
-8. **Same transaction resent.** Iris returns the signature again but does not forward a transaction it has already seen. To retry, sign a new transaction with a fresh blockhash.
+8. **Same transaction resent.** Iris ignores a signature it has seen in the last 90 seconds. `sendTransaction` returns the signature again without forwarding it; other methods return `contains duplicate signature`. To retry, sign a new transaction with a fresh blockhash.
 
 ## Testing Astralane against another sender
 

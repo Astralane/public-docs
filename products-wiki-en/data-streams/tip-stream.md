@@ -2,7 +2,7 @@
 icon: money-bills
 ---
 
-# Tip Stream
+# Tip stream
 
 Live percentile snapshot of tip sizes paid by transactions **landed through Astralane**. Useful for picking a tip that is competitive enough to get your transaction landed through Astralane without over-paying.
 

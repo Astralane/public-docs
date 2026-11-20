@@ -2,7 +2,7 @@
 icon: fire
 ---
 
-# Send in Plain Text
+# Plain text
 
 Key Improvements Include:
 
@@ -103,7 +103,7 @@ await sendTransaction(signedTransaction, "YOUR_API_KEY");
 ```
 {% endtab %}
 
-{% tab title="Javascript" %}
+{% tab title="JavaScript" %}
 ```javascript
 const axios = require('axios');
 let data = 'base64_encoded_txn';
@@ -129,7 +129,7 @@ axios.request(config)
 ```
 {% endtab %}
 
-{% tab title="Go Lang" %}
+{% tab title="Go" %}
 ```go
 package main
 

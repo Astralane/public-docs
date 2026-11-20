@@ -2,7 +2,7 @@
 icon: ghost
 ---
 
-# Send Ghost Transaction
+# Ghost transactions
 
 {% hint style="info" %}
 Access is currently limited to invited users. Please create a ticket on Discord or contact us via Telegram to request access.
@@ -165,7 +165,7 @@ axios
 ```
 {% endtab %}
 
-{% tab title="Go Lang" %}
+{% tab title="Go" %}
 ```go
 package main
 
@@ -350,7 +350,7 @@ If the `tip` parameter is missing:
 | ---------------------------------------------- | ------------------------------------------------ | ------------------------------------ | ------------- |
 | Transaction contains a recognized tip transfer | JSON-RPC error                                   | `400` error                          | Frame dropped |
 | Non-base64 encoding                            | `Only base64 encoded transactions are supported` | -                                    | -             |
-| Missing tip                                    | Invalid request                                  | `400` - missing required `tip` param | -             |
+| Missing tip                                    | `-32602` Invalid params                          | `400` - missing required `tip` param | -             |
 | Method not recognized                          | `401`                                            | `401`                                | -             |
 | Method not allowed                             | `405`                                            | `405`                                | -             |
 | Ghost frame shorter than 8 bytes               | -                                                | -                                    | Frame dropped |

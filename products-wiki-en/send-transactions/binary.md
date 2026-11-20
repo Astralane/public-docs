@@ -2,7 +2,7 @@
 icon: fire
 ---
 
-# Send in Binary
+# Binary
 
 Key Improvements Include:
 
@@ -137,7 +137,7 @@ Transactions are concatenated back-to-back with no separators or envelope:
 +--------+----------+--------+----------+-----+
 ```
 
-**Headers required:**
+**Header (optional):**
 
 * `Content-Type: application/octet-stream`
 
@@ -211,7 +211,7 @@ async fn main() -> anyhow::Result<()> {
 ```
 {% endtab %}
 
-{% tab title="Typescript" %}
+{% tab title="TypeScript" %}
 ```typescript
 import { Transaction } from "@solana/web3.js";
 
@@ -271,5 +271,5 @@ The server returns JSON. The `result` field is an **array of signatures**, one p
 }
 ```
 
-* Array length matches the number of transactions sent.
+* Transactions already sent in the last 90 seconds are left out, so the array can be shorter than the batch.
 * Signatures are in the same order as the transactions in the request body.

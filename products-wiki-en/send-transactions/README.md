@@ -5,7 +5,7 @@ icon: paper-plane
 
 # Choose how to send
 
-Iris takes a signed, tipped transaction and races it to the current leader over staked connections, Jito, Harmonic, block builders such as BAM, and custom schedulers such as Rakurai. You choose how the transaction reaches Iris.
+Iris takes a signed, tipped transaction and races it to the current leader over staked connections, Jito, Harmonic, Gravity Block Exchange, block builders such as BAM, and custom schedulers such as Rakurai. You choose how the transaction reaches Iris.
 
 ## Transports
 
@@ -18,7 +18,7 @@ Iris takes a signed, tipped transaction and races it to the current leader over 
 | WebSocket | `wss://<region>.gateway.astralane.io:5500/iris` | No | Browser terminals that want a persistent connection. |
 
 {% hint style="warning" %}
-QUIC and WebSocket return nothing. Rate-limited or invalid transactions are dropped without an error, so track your own signatures and landing rate.
+QUIC and WebSocket return nothing. Rate-limited or invalid transactions are dropped without an error, so track your own signatures and landing rate. Both are enabled per key: see [Access and support](../start-here/access-and-support.md).
 {% endhint %}
 
 ## Methods

@@ -2,7 +2,7 @@
 icon: jet-fighter
 ---
 
-# WebSocket Transaction Submission
+# WebSocket
 
 Astralane's WebSocket endpoint provides a fast, browser-native path for submitting Solana transactions. Designed for frontends and trading terminals where QUIC (mTLS) isn't available.
 
@@ -94,7 +94,7 @@ ws.onopen = () => {
 ```
 {% endtab %}
 
-{% tab title="Javascript" %}
+{% tab title="JavaScript" %}
 ```javascript
 const ws = new WebSocket('wss://fr.gateway.astralane.io:5500/iris?api_key=your-api-key');
 ws.binaryType = 'arraybuffer';

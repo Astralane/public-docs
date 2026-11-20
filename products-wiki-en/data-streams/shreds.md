@@ -132,8 +132,10 @@ Content-Type: application/json
 **Response format:**
 
 ```json
-{ "accepted": ["<your transaction signature>"] }
+{ "accepted": ["<your transaction signature>"], "errors": [] }
 ```
+
+Rejected transactions are listed in `errors` with their `index`, `signature` and `error`. The request still returns `200`.
 
 You can land your transactions anywhere — Iris or any other provider. That part is entirely up to you.\
 
@@ -142,7 +144,7 @@ You can land your transactions anywhere — Iris or any other provider. That par
 **Tier counting**: a tip only counts once a copy of that transaction is sent to **ShredPay** over HTTP. Landing it somewhere doesn't register it — not even through Astralane's own services.
 {% endhint %}
 
-**No double-paying.** You don't pay Astralane twice. If you're already tipping \~0.5 SOL or more via Iris, that stays exactly the same — you just also send a **copy** of those tipped transactions to the ShredPay endpoint.
+**How registration works.** First land a transaction that tips one of the [ShredPay wallets](#tipping-address), then send a **copy** of that transaction to the ShredPay endpoint to register the tip. Tips to Iris tip wallets do not count toward shred tiers.
 
 #### How to set up tipping&#x20;
 
@@ -392,8 +394,6 @@ Pay only for what you use - no monthly fee. Your tier is set by your trailing-24
 
 <summary>7. How do I pay only for the shreds I actually use?</summary>
 
-Add the tip instruction only when an Astralane shred was the signal for a trade — so you pay strictly where it gave you an edge.\
-\
-**Coming soon:** the tip will attach to the closing leg of your trade, so you pay only at execution.
+Add the tip instruction only when an Astralane shred was the signal for a trade — so you pay strictly where it gave you an edge.
 
 </details>

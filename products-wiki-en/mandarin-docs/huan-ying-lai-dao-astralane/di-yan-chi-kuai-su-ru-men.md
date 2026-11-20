@@ -4,11 +4,11 @@
 
 我们的动态优先级系统智能地为高优先级操作分配资源，并提供企业级可靠性和全天候支持。<br>
 
-{% content-ref url="/broken/pages/eK1MEebBlHLFjn1BITvv" %}
-[Broken link](/broken/pages/eK1MEebBlHLFjn1BITvv)
+{% content-ref url="duan-dian-he-pei-zhi.md" %}
+[duan-dian-he-pei-zhi.md](duan-dian-he-pei-zhi.md)
 {% endcontent-ref %}
 
-{% content-ref url="/broken/pages/VwsdEhXEgugeFa4m8g7k" %}
-[Broken link](/broken/pages/VwsdEhXEgugeFa4m8g7k)
+{% content-ref url="ti-jiao-jiao-yi/" %}
+[ti-jiao-jiao-yi](ti-jiao-jiao-yi/)
 {% endcontent-ref %}
 

@@ -15,7 +15,7 @@ MEV protection prevents toxic MEV, such as sandwiching.
 
 | Transport | How |
 | --- | --- |
-| JSON-RPC, plain text, binary | Add `mev-protect=true` to the URL. `sendBundle` and `sendBatch` ignore it: use the request option below |
+| JSON-RPC, plain text, binary | Add `mev-protect=true` to the URL. JSON-RPC `sendBundle` and `sendBatch` ignore it: use the request option below |
 | JSON-RPC, per request | Pass `{ "mevProtect": true }` as the third parameter of `sendTransaction`, or inside the options of `sendBundle` and `sendBatch` |
 | QUIC | Connect to port `9000` instead of `7000` |
 | WebSocket | Connect to the `/mev-protect` path instead of `/iris` |

@@ -2,7 +2,7 @@
 icon: bolt
 ---
 
-# Keep alive / Healthy Ping
+# Keep connections warm
 
 ## Keep-Alive Connections
 

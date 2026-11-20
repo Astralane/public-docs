@@ -29,7 +29,7 @@ Returns `string[]` — an array of base58-encoded transaction signatures, in the
 
 ### Errors
 
-<table><thead><tr><th width="98">Code</th><th>Message</th><th>Description</th></tr></thead><tbody><tr><td><code>-32600</code></td><td><code>request size {n} exceeded max batch size {max}</code></td><td>Batch exceeds the maximum allowed size.</td></tr><tr><td><code>-32600</code></td><td><code>contains duplicate signature</code></td><td>Two or more transactions in the batch share the same signature.</td></tr><tr><td><code>-32600</code></td><td><code>cannot validate transaction ...</code></td><td>A transaction is malformed or does not meet the minimum tip requirement.</td></tr><tr><td><code>-32603</code></td><td><code>failed to send batch, internal error</code></td><td>Internal dispatch failure.</td></tr></tbody></table>
+<table><thead><tr><th width="98">Code</th><th>Message</th><th>Description</th></tr></thead><tbody><tr><td><code>-32600</code></td><td><code>request size {n} exceeded max batch size {max}</code></td><td>Batch exceeds the maximum allowed size.</td></tr><tr><td><code>-32600</code></td><td><code>contains duplicate signature</code></td><td>A transaction in the batch was already sent in the last 90 seconds, or two transactions share a signature.</td></tr><tr><td><code>-32600</code></td><td><code>cannot validate transaction ...</code></td><td>A transaction is malformed or does not meet the minimum tip requirement.</td></tr><tr><td><code>-32603</code></td><td><code>failed to send batch, internal error</code></td><td>Internal dispatch failure.</td></tr></tbody></table>
 
 ### Example
 
@@ -128,7 +128,7 @@ const signatures: string[] = await sendBatch(
 ```
 {% endtab %}
 
-{% tab title="Javascript" %}
+{% tab title="JavaScript" %}
 ```javascript
 async function sendBatch(rpcUrl, transactions, options = {}) {
   const params = [transactions];
@@ -164,7 +164,7 @@ const signatures = await sendBatch(
 ### Notes
 
 * All transactions in the batch must meet the minimum tip requirement.
-* A duplicate signature within a batch returns an error. Transactions before the duplicate may already have been sent.
+* A duplicate signature returns an error. Transactions before the duplicate may already have been sent.
 * Transactions are processed individually after submission; a successful response means the transactions were accepted, not confirmed on-chain.
 
 ***

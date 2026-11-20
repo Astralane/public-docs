@@ -2,7 +2,7 @@
 description: Get rid of raw shreds decoding overhead
 ---
 
-# Decoded Shreds
+# Decoded shreds
 
 ## Deshred Service
 

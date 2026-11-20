@@ -42,7 +42,7 @@
 
 * [Pricing and limits](help/pricing-and-limits.md)
 * [Troubleshooting](help/troubleshooting.md)
-* [Changelog](help/changelog.md)
+* [Changelog](https://github.com/Astralane/public-docs/commits/master/)
 
 ***
 

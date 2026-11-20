@@ -16,7 +16,7 @@ Every transaction sent through Iris pays a tip: a transfer to one Astralane tip 
 | VIP 2 | 0.0001 SOL | 100,000 |
 | VIP 3 | 0.00001 SOL | 10,000 |
 
-These are the defaults; a custom minimum can be agreed per key. The minimum is a floor. Over JSON-RPC a tip below it is rejected with `-32600` `Invalid Request: min tip not paid for any asset`; over plain text and binary you get HTTP `400` with the same message; over QUIC and WebSocket the transaction is dropped. Token tips have their own minimums, described in [Minimums for token tips](#minimums-for-token-tips). How tiers are earned is in [Pricing and limits](../help/pricing-and-limits.md).
+These are the defaults; a custom minimum can be agreed per key. The minimum is a floor. Over JSON-RPC a tip below it is rejected with `-32600` `Invalid Request: min tip not paid for any asset`; over plain text and binary you get HTTP `400` with `min tip not paid for any asset`; over QUIC and WebSocket the transaction is dropped. Token tips have their own minimums, described in [Minimums for token tips](#minimums-for-token-tips). How tiers are earned is in [Pricing and limits](../help/pricing-and-limits.md).
 
 ## Tip in WSOL, USDC or USDT
 

@@ -2,7 +2,7 @@
 icon: jet-fighter
 ---
 
-# QUIC Transaction Submission
+# QUIC
 
 Astralane's QUIC endpoint provides a faster, more efficient path for submitting Solana transactions compared to traditional HTTP/JSON-RPC.
 
