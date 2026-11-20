@@ -40,12 +40,7 @@ Deshred Service is designed for:
 
 To get access, you need to establish GRPC connection to one of our endpoints:
 
-| Location                | URL                                  |
-| ----------------------- | ------------------------------------ |
-| Fra (Terraswitch)       | http://fr1.shreds.astralane.io:12000 |
-| Fra (Cherry Servers)    | http://fr2.shreds.astralane.io:12000 |
-| NY (Terraswitch)        | http://ny1.shreds.astralane.io:12000 |
-| Amsterdam (Terraswitch) | http://am1.shreds.astralane.io:12000 |
+<table><thead><tr><th width="203.71484375">Location</th><th>URL</th></tr></thead><tbody><tr><td>Fra (Terraswitch)</td><td>http://fr1.shreds.astralane.io:12000</td></tr><tr><td>Fra (Cherry Servers)</td><td>http://fr2.shreds.astralane.io:12000</td></tr><tr><td>NY (Terraswitch)</td><td>http://ny1.shreds.astralane.io:12000</td></tr><tr><td>Amsterdam (Terraswitch)</td><td>http://am1.shreds.astralane.io:12000</td></tr></tbody></table>
 
 To authorise, provide `x-token` header with value of your shreds API key.
 
