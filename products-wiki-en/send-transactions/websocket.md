@@ -2,13 +2,13 @@
 icon: jet-fighter
 ---
 
-# WebSocket Transaction Submission
+# WebSocket
 
 Astralane's WebSocket endpoint provides a fast, browser-native path for submitting Solana transactions. Designed for frontends and trading terminals where QUIC (mTLS) isn't available.
 
 ### Available Endpoints
 
-<table><thead><tr><th width="177.21484375">Location</th><th>Endpoint</th></tr></thead><tbody><tr><td>Frankfurt (Recommended)</td><td><code>wss://fr.gateway.astralane.io:5500</code></td></tr><tr><td>Frankfurt</td><td><code>wss://fr2.gateway.astralane.io:5500</code></td></tr><tr><td>Los Angeles</td><td><code>wss://la.gateway.astralane.io:5500</code></td></tr><tr><td>Tokyo</td><td><code>wss://jp.gateway.astralane.io:5500</code></td></tr><tr><td>New York</td><td><code>wss://ny.gateway.astralane.io:5500</code></td></tr><tr><td>Amsterdam (Recommended)</td><td><code>wss://ams.gateway.astralane.io:5500</code></td></tr><tr><td>Amsterdam 2</td><td><code>wss://ams2.gateway.astralane.io:5500</code></td></tr><tr><td>Limburg</td><td><code>wss://lim.gateway.astralane.io:5500</code></td></tr><tr><td>Singapore</td><td><code>wss://sg.gateway.astralane.io:5500</code></td></tr><tr><td>Lithuania</td><td><code>wss://lit.gateway.astralane.io:5500</code></td></tr><tr><td>London</td><td><code>wss://lon.gateway.astralane.io:5500</code></td></tr></tbody></table>
+<table><thead><tr><th width="296.921875">Location</th><th>Endpoint</th></tr></thead><tbody><tr><td>Frankfurt (Recommended)</td><td><code>wss://fr.gateway.astralane.io:5500</code></td></tr><tr><td>Frankfurt</td><td><code>wss://fr2.gateway.astralane.io:5500</code></td></tr><tr><td>Los Angeles</td><td><code>wss://la.gateway.astralane.io:5500</code></td></tr><tr><td>Tokyo</td><td><code>wss://jp.gateway.astralane.io:5500</code></td></tr><tr><td>New York</td><td><code>wss://ny.gateway.astralane.io:5500</code></td></tr><tr><td>Amsterdam (Recommended)</td><td><code>wss://ams.gateway.astralane.io:5500</code></td></tr><tr><td>Amsterdam 2</td><td><code>wss://ams2.gateway.astralane.io:5500</code></td></tr><tr><td>Limburg</td><td><code>wss://lim.gateway.astralane.io:5500</code></td></tr><tr><td>Singapore</td><td><code>wss://sg.gateway.astralane.io:5500</code></td></tr><tr><td>Lithuania</td><td><code>wss://lit.gateway.astralane.io:5500</code></td></tr><tr><td>London</td><td><code>wss://lon.gateway.astralane.io:5500</code></td></tr></tbody></table>
 
 ### Available Paths
 
@@ -94,7 +94,7 @@ ws.onopen = () => {
 ```
 {% endtab %}
 
-{% tab title="Javascript" %}
+{% tab title="JavaScript" %}
 ```javascript
 const ws = new WebSocket('wss://fr.gateway.astralane.io:5500/iris?api_key=your-api-key');
 ws.binaryType = 'arraybuffer';
@@ -146,7 +146,7 @@ If you're using a library that does **not** auto-respond to pings, you must manu
 
 ### Server Limits
 
-<table><thead><tr><th width="260.53125">Parameter</th><th width="167.9921875">Value</th><th>Description</th></tr></thead><tbody><tr><td>Max transaction size</td><td>1232 bytes</td><td>Standard Solana transaction size limit</td></tr><tr><td>Pong timeout</td><td>30 s</td><td>Server sends a ping every 25s; connection closed if no pong received within 30s</td></tr><tr><td>Idle timeout</td><td>300 s</td><td>Connection closed if no transaction sent within 5 minutes</td></tr><tr><td>Handshake timeout</td><td>5 s</td><td>WebSocket upgrade must complete within this window</td></tr><tr><td>Max connections per API key</td><td>5000</td><td>Total concurrent connections allowed per API key</td></tr><tr><td>Max connections per IP</td><td>2</td><td>Total concurrent connections allowed per client IP</td></tr></tbody></table>
+<table><thead><tr><th width="260.53125">Parameter</th><th width="167.9921875">Value</th><th>Description</th></tr></thead><tbody><tr><td>Max transaction size</td><td>1232 bytes</td><td>Standard Solana transaction size limit. 4096 bytes for v1 transactions</td></tr><tr><td>Pong timeout</td><td>30 s</td><td>Server sends a ping every 25s; connection closed if no pong received within 30s</td></tr><tr><td>Idle timeout</td><td>300 s</td><td>Connection closed if no transaction sent within 5 minutes</td></tr><tr><td>Handshake timeout</td><td>5 s</td><td>WebSocket upgrade must complete within this window</td></tr><tr><td>Max connections per API key</td><td>5000</td><td>Total concurrent connections allowed per API key</td></tr><tr><td>Max connections per IP</td><td>2</td><td>Total concurrent connections allowed per client IP</td></tr></tbody></table>
 
 ***
 

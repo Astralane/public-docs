@@ -2,13 +2,13 @@
 description: Get rid of raw shreds decoding overhead
 ---
 
-# Decoded Shreds
+# Decoded shreds
 
 ## Deshred Service
 
 #### What is the Deshred Service?
 
-Raw shreds arrive in a huge stream of raw encoded UDP packets - turning them into usable transactions requires reconstruction, decoding, filtration and ALT resoultion on every client.
+Raw shreds arrive in a huge stream of raw encoded UDP packets - turning them into usable transactions requires reconstruction, decoding, filtration and ALT resolution on every client.
 
 Our **Decoded Shreds Service** does this work for you. Instead of receiving raw UDP shreds and doing the boilerplate work yourself, you receive **already decoded and filtered transactions**, streamed to you at the shreds speed.
 
@@ -50,7 +50,7 @@ Example client: [https://github.com/Astralane/shred-tools/tree/main/deshred-exam
 
 #### Pricing
 
-Decoded Shreds are available for all active [tier-2 shred users](./#pricing-and-tips-setup).&#x20;
+Decoded Shreds are available for all active [tier-2 shred users](../shreds.md#pricing-and-tips-setup).&#x20;
 
 ***
 

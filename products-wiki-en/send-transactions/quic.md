@@ -2,13 +2,13 @@
 icon: jet-fighter
 ---
 
-# QUIC Transaction Submission
+# QUIC
 
 Astralane's QUIC endpoint provides a faster, more efficient path for submitting Solana transactions compared to traditional HTTP/JSON-RPC.
 
 ### Available Endpoints
 
-* <table><thead><tr><th width="158.91796875">Location</th><th>IP Address</th><th>MEV Protected IP address</th></tr></thead><tbody><tr><td>Frankfurt (Recommended)</td><td><code>185.191.117.97:7000</code></td><td><code>185.191.117.97:9000</code></td></tr><tr><td>Frankfurt</td><td><code>45.139.132.160:7000</code></td><td><code>45.139.132.160:9000</code></td></tr><tr><td>Los Angeles</td><td><code>74.118.142.151:7000</code></td><td><code>74.118.142.151:9000</code></td></tr><tr><td>Tokyo</td><td><code>189.1.164.31:7000</code></td><td><code>189.1.164.31:9000</code></td></tr><tr><td>New York</td><td><code>64.130.45.19:7000</code></td><td><code>64.130.45.19:9000</code></td></tr><tr><td>Amsterdam (Recommended)</td><td><code>64.130.43.43:7000</code></td><td><code>64.130.43.43:9000</code></td></tr><tr><td>Amsterdam</td><td><code>84.32.186.73:7000</code></td><td><code>84.32.186.73:9000</code></td></tr><tr><td>Limburg</td><td><code>162.19.222.232:7000</code></td><td><code>162.19.222.232:9000</code></td></tr><tr><td>Singapore</td><td><code>67.209.54.176:7000</code></td><td><code>67.209.54.176:9000</code></td></tr><tr><td>Lithuania</td><td><code>84.32.97.47:7000</code></td><td><code>84.32.97.47:9000</code></td></tr><tr><td>London</td><td><code>63.254.168.71:7000</code></td><td><code>63.254.168.71:9000</code></td></tr></tbody></table>
+* <table><thead><tr><th width="255.17578125">Location</th><th>IP Address</th><th>MEV Protected IP address</th></tr></thead><tbody><tr><td>Frankfurt (Recommended)</td><td><code>185.191.117.97:7000</code></td><td><code>185.191.117.97:9000</code></td></tr><tr><td>Frankfurt</td><td><code>45.139.132.160:7000</code></td><td><code>45.139.132.160:9000</code></td></tr><tr><td>Los Angeles</td><td><code>74.118.142.151:7000</code></td><td><code>74.118.142.151:9000</code></td></tr><tr><td>Tokyo</td><td><code>189.1.164.31:7000</code></td><td><code>189.1.164.31:9000</code></td></tr><tr><td>New York</td><td><code>64.130.45.19:7000</code></td><td><code>64.130.45.19:9000</code></td></tr><tr><td>Amsterdam (Recommended)</td><td><code>64.130.43.43:7000</code></td><td><code>64.130.43.43:9000</code></td></tr><tr><td>Amsterdam</td><td><code>84.32.186.73:7000</code></td><td><code>84.32.186.73:9000</code></td></tr><tr><td>Limburg</td><td><code>162.19.222.232:7000</code></td><td><code>162.19.222.232:9000</code></td></tr><tr><td>Singapore</td><td><code>67.209.54.176:7000</code></td><td><code>67.209.54.176:9000</code></td></tr><tr><td>Lithuania</td><td><code>84.32.97.47:7000</code></td><td><code>84.32.97.47:9000</code></td></tr><tr><td>London</td><td><code>63.254.168.71:7000</code></td><td><code>63.254.168.71:9000</code></td></tr></tbody></table>
 
 ### JSON-RPC VS QUIC
 
@@ -69,7 +69,7 @@ client.close().await;
 | Max connections per API key           | 10         | Create multiple client instances for more connections                 |
 | Max concurrent streams per connection | 64         | Streams beyond this limit will block until a slot frees up            |
 | Stream read timeout                   | 750 ms     | Server closes the stream if transaction bytes aren't received in time |
-| Max transaction size                  | 1232 bytes | Standard Solana transaction size limit                                |
+| Max transaction size                  | 1232 bytes | 4096 bytes for v1 transactions                                        |
 | Idle timeout                          | 30 s       | Connection closes if no activity; client sends keep-alive every 25s   |
 
 ***

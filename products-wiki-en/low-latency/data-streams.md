@@ -83,12 +83,12 @@ _If block/account subscribe or other streams are required do please let us know_
 *   Check if rpc port is working
 
     ```bash
-    solana -u [<http://192.168.1.77:8899>](<http://rpc:8899/>) epoch-info 
+    solana -u http://192.168.1.77:8899 epoch-info 
     ```
 *   Using solana catchup CLI to check if the RPC is synced (only needed if we perform upgrades):
 
     ```bash
-    solana catchup -um CbvjseFvBqvBFz3Xe75iuA9vhkkFrjmnYSPx5AEcojwp <http://192.168.1.77:8899>
+    solana catchup -um CbvjseFvBqvBFz3Xe75iuA9vhkkFrjmnYSPx5AEcojwp http://192.168.1.77:8899
     ```
 
 

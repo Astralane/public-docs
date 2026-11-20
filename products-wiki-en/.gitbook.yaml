@@ -1,0 +1,24 @@
+root: ./
+
+structure:
+  readme: README.md
+  summary: SUMMARY.md
+
+redirects:
+  low-latency/quickstart: start-here/quickstart.md
+  low-latency/endpoints-and-configs: send-transactions/regions-and-endpoints.md
+  low-latency/send-txn-fee-tiers: help/pricing-and-limits.md
+  low-latency/submit-transactions: send-transactions/README.md
+  low-latency/submit-transactions/quic-transaction-submission: send-transactions/quic.md
+  low-latency/submit-transactions/websocket-transaction-submission: send-transactions/websocket.md
+  low-latency/submit-transactions/send-in-plain-text: send-transactions/plain-text.md
+  low-latency/submit-transactions/send-ghost-transaction: send-transactions/ghost-transactions.md
+  low-latency/submit-transactions/send-in-binary: send-transactions/binary.md
+  low-latency/submit-transactions/tip-stream: data-streams/tip-stream.md
+  low-latency/submit-transactions/keep-alive-healthy-ping: send-transactions/keep-alive.md
+  low-latency/submit-transactions/tip-refunds: send-transactions/tip-refunds.md
+  low-latency/submit-transactions/tip-in-tokens-or-alts: send-transactions/tips-and-fees.md
+  low-latency/shreds: data-streams/shreds.md
+  low-latency/shreds/decoded-shreds: data-streams/decoded-shreds/README.md
+  low-latency/shreds/how-to-use-deshreds: data-streams/decoded-shreds/README.md
+  low-latency/postpacks: data-streams/postpacks.md

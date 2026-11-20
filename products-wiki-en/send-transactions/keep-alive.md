@@ -2,7 +2,7 @@
 icon: bolt
 ---
 
-# Keep alive / Healthy Ping
+# Keep connections warm
 
 ## Keep-Alive Connections
 
@@ -67,8 +67,4 @@ async fn send_txn_with_keep_alive() -> Result<(), Box<dyn std::error::Error>> {
 
 Here is the [full source with example](https://github.com/Astralane/keep-Alive-Example/blob/main/src/main.rs)<br>
 
-## Wallet Rotation
-
-Tip wallets are prone to write locks, which may result in landing of your transactions being delayed.&#x20;
-
-We recommend rotating our tip wallets with every send to avoid this issue.&#x20;
+Tip wallet rotation is now on [Tips and fees](tips-and-fees.md#tip-wallets).

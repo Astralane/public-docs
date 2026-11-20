@@ -2,7 +2,7 @@
 icon: fire
 ---
 
-# Send in Plain Text
+# Plain text
 
 Key Improvements Include:
 
@@ -103,7 +103,7 @@ await sendTransaction(signedTransaction, "YOUR_API_KEY");
 ```
 {% endtab %}
 
-{% tab title="Javascript" %}
+{% tab title="JavaScript" %}
 ```javascript
 const axios = require('axios');
 let data = 'base64_encoded_txn';
@@ -129,7 +129,7 @@ axios.request(config)
 ```
 {% endtab %}
 
-{% tab title="Go Lang" %}
+{% tab title="Go" %}
 ```go
 package main
 
@@ -195,7 +195,7 @@ func main() {
 ```shellscript
 curl --location 'https://lim.gateway.astralane.io/iris2?api-key=APIKEY&method=sendBatch' \
 --header 'Content-Type: text/plain' \
---data 'base64_encoded_txn1,base64_encoded_txn2,base64_encoded_txn3' // coma seperated values
+--data 'base64_encoded_txn1,base64_encoded_txn2,base64_encoded_txn3' // comma-separated values
 ```
 
 #### Expected Response

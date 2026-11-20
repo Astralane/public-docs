@@ -2,7 +2,7 @@
 icon: ghost
 ---
 
-# Send Ghost Transaction
+# Ghost transactions
 
 {% hint style="info" %}
 Access is currently limited to invited users. Please create a ticket on Discord or contact us via Telegram to request access.
@@ -10,7 +10,7 @@ Access is currently limited to invited users. Please create a ticket on Discord 
 
 sendGhostTransaction allows you to submit a Solana transaction where the tip is supplied out of band, separately from the transaction itself.
 
-Unlike a standard [sendTransaction](./#sendtransaction), the transaction need not contain a transfer to any one of [Astralane's tip wallets](../endpoints-and-configs/). Instead, the tip is supplied through a parameter while making the sendGhostTransaction request to one of our [endpoints](../endpoints-and-configs/).
+Unlike a standard [sendTransaction](../api-reference/sendtransaction.md), the transaction must not contain a transfer to any of [Astralane's tip wallets](tips-and-fees.md#tip-wallets). Instead, the tip is supplied through a parameter while making the sendGhostTransaction request to one of our [endpoints](regions-and-endpoints.md).
 
 > Key points:
 >
@@ -36,7 +36,7 @@ The request body must contain the base64-encoded signed transaction.
 The transaction itself must not contain a tip transfer.
 
 ```shellscript
-// Some codecurl --location 'https://lim.gateway.astralane.io/iris2?api-key=APIKEY&method=sendGhostTransaction&tip=1000000' \
+curl --location 'https://lim.gateway.astralane.io/iris2?api-key=APIKEY&method=sendGhostTransaction&tip=1000000' \
 --header 'Content-Type: text/plain' \
 --data 'base64_encoded_txn'
 ```
@@ -165,7 +165,7 @@ axios
 ```
 {% endtab %}
 
-{% tab title="Go Lang" %}
+{% tab title="Go" %}
 ```go
 package main
 
@@ -350,7 +350,7 @@ If the `tip` parameter is missing:
 | ---------------------------------------------- | ------------------------------------------------ | ------------------------------------ | ------------- |
 | Transaction contains a recognized tip transfer | JSON-RPC error                                   | `400` error                          | Frame dropped |
 | Non-base64 encoding                            | `Only base64 encoded transactions are supported` | -                                    | -             |
-| Missing tip                                    | Invalid request                                  | `400` - missing required `tip` param | -             |
+| Missing tip                                    | `-32602` Invalid params                          | `400` - missing required `tip` param | -             |
 | Method not recognized                          | `401`                                            | `401`                                | -             |
 | Method not allowed                             | `405`                                            | `405`                                | -             |
 | Ghost frame shorter than 8 bytes               | -                                                | -                                    | Frame dropped |
