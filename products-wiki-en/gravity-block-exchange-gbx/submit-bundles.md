@@ -47,6 +47,94 @@ Authenticate with any keypair using the standard Jito searcher auth flow (`Gener
 
 Without registration you get 5 requests/s per key per region, and every bundle needs at least 5,000 lamports in priority fees. Want higher limits or no fee minimum? Ping us on [discord](https://discord.gg/t8anFGy8nN) and we'll register your pubkey.
 
+### Finding GBX leaders
+
+Bundles only land in slots led by validators connected to GBX. Three calls on the same endpoints tell you who those validators are and when they lead, so you can time your submissions and pick the right region. No token needed, and they don't count against your rate limit. The protos are at [github.com/Astralane/gbx-protos](https://github.com/Astralane/gbx-protos); the examples below use grpcurl from inside a clone of that repo. The responses in the examples below are all illustrative
+
+**GetRegions**
+
+Which region the endpoint you're talking to is in, and which regions exist.
+
+```sh
+grpcurl -plaintext -import-path protos -proto searcher.proto \
+  ams-gbx.astralane.io:5064 searcher.SearcherService/GetRegions
+```
+
+Example Response:
+
+```json
+{
+  "current_region": "ams",
+  "available_regions": ["ams", "fra", "lon", "tyo"]
+}
+```
+
+**GetConnectedLeaders**
+
+Every validator connected to GBX and its remaining leader slots in the current epoch.
+
+Request:
+
+```sh
+grpcurl -plaintext -import-path protos -proto searcher.proto \
+  ams-gbx.astralane.io:5064 searcher.SearcherService/GetConnectedLeaders
+```
+
+Response:
+
+```json
+{
+  "connected_validators": {
+    "forb5u56XgvzxiKfRt4FVNFQKJrd2LWAfNCsCqL6P7q": {
+      "slots": [471782752, 471782753, 471782754, 471782755, ...]
+    },
+    "C8Bey3LKVJHVqN6xPTeW8WJfUgFQAeGNBpT4Rp99JP1k": {
+      "slots": [471756396, 471756397, 471756398, 471756399, ...]
+    },
+    "Ha1iade1AH3B12K9SccfWoPdFtQKKQsj2ZyWwxcjqJJU": {
+      "slots": [471756452, 471756453, 471756454, 471756455, ...]
+    }
+  }
+}
+```
+
+**GetConnectedLeadersRegioned**
+
+The same data grouped by the region that serves each validator. Send a bundle for a given slot to that leader's region for the lowest latency.
+
+Request: a list of regions, or empty for all.
+
+
+
+```sh
+grpcurl -plaintext -import-path protos -proto searcher.proto \
+  -d '{"regions": ["ams", "tyo"]}' \
+  ams-gbx.astralane.io:5064 searcher.SearcherService/GetConnectedLeadersRegioned
+```
+
+Response:
+
+```json
+{
+  "connected_validators": {
+    "ams": {
+      "connected_validators": {
+        "forb5u56XgvzxiKfRt4FVNFQKJrd2LWAfNCsCqL6P7q": {
+          "slots": [471782752, 471782753, 471782754, 471782755, ...]
+        }
+      }
+    },
+    "tyo": {
+      "connected_validators": {
+        "Ha1iade1AH3B12K9SccfWoPdFtQKKQsj2ZyWwxcjqJJU": {
+          "slots": [471756452, 471756453, 471756454, 471756455, ...]
+        }
+      }
+    }
+  }
+}
+```
+
 ### Current Features <a href="#getting-access" id="getting-access"></a>
 
 #### 1. Revert Protection
@@ -68,6 +156,8 @@ message Bundle {
   .....
 }
 ```
+
+Upcoming GBX slots come from `GetConnectedLeaders` (see Finding GBX leaders above).
 
 #### 3. Dropping Indices
 
