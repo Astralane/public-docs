@@ -22,9 +22,7 @@ icon: earth-europe
 | Tokyo | `jp.gateway.astralane.io` | `189.1.164.31` | 7000 | 9000 | 6000 | 5500 |
 | Singapore | `sg.gateway.astralane.io` | `67.209.54.176` | 7000 | 9000 | 6000 | 5500 |
 
-Paths on every host: `/iris` (JSON-RPC), `/iris2` (plain text), `/irisb` (binary), `/gethealth` (health check). WebSocket paths are `/iris` and `/mev-protect`.
-
-<!-- review: Add the datacenter and provider for each host (the MCP already returns them), and confirm the ghost port 6000 is open on every region. The current pages call 74.118.142.151 both "Los Angeles" and "San Francisco". -->
+Paths on every host: `/iris` (JSON-RPC), `/iris2` (plain text), `/irisb` (binary), `/gethealth` (health check). WebSocket paths are `/iris` and `/mev-protect`. Every region has the same ports and paths.
 
 ## Which region to use
 
@@ -38,7 +36,7 @@ done
 ```
 
 3. **Also send to the global edge.** Sending each transaction to your nearest region and to `edge.astralane.io` covers leaders on other continents.
-4. **Use the IP for QUIC.** Connecting by IP skips DNS and is the only way to reach the QUIC ports.
+4. **Use the IP for QUIC.** Connecting by IP skips DNS. The regional hostnames also work.
 
 ## Shred and postpack relays
 

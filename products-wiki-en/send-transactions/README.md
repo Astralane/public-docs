@@ -5,7 +5,7 @@ icon: paper-plane
 
 # Choose how to send
 
-Iris takes a signed, tipped transaction and races it to the current leader over staked connections, Jito, Paladin, block builders such as Harmonic and BAM, and custom schedulers such as Rakurai. You choose how the transaction reaches Iris.
+Iris takes a signed, tipped transaction and races it to the current leader over staked connections, Jito, Harmonic, block builders such as BAM, and custom schedulers such as Rakurai. You choose how the transaction reaches Iris.
 
 ## Transports
 
@@ -28,15 +28,14 @@ QUIC and WebSocket return nothing. Rate-limited or invalid transactions are drop
 | `sendTransaction` | One transaction, routed every way at once | [Reference](../api-reference/sendtransaction.md) |
 | `sendBundle` | Up to 4 transactions that land together or not at all | [Bundles](bundles.md) |
 | `sendIdeal` | Two versions of one transaction, one tip-heavy and one fee-heavy, sharing a durable nonce | [sendIdeal](send-ideal.md) |
-| `sendBatch` | Up to 25 independent transactions in one request | [All methods](../api-reference/README.md) |
+| `sendBatch` | Up to 25 independent transactions in one request | [sendBatch](send-batch.md) |
 | `sendGhostTransaction` | Tip passed as a parameter instead of inside the transaction | [Ghost transactions](ghost-transactions.md) |
-| `getNonce`, `getHealth` | Managed nonce lookup and keep-alive | [All methods](../api-reference/README.md) |
+| `getNonce`, `getHealth` | Managed nonce lookup and keep-alive | [sendIdeal](send-ideal.md), [Keep connections warm](keep-alive.md) |
 
-## Options on every transport
+## Options
 
 | Option | Default | How to set it |
 | --- | --- | --- |
 | MEV protection | Off | See [MEV protection](mev-protection.md) |
-| SWQoS only | Off | `swqos-only=true` in the URL |
-
-<!-- review: max_retries is mentioned on the current page with no parameter name. Add it here once engineering confirms it. -->
+| SWQoS only | Off | `swqos-only=true` in the URL. JSON-RPC, plain text and binary only |
+| Retries | Set by Astralane | `maxRetries` in the `sendTransaction` config object. JSON-RPC only |

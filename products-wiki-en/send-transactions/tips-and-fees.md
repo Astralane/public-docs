@@ -9,16 +9,14 @@ Every transaction sent through Iris pays a tip: a transfer to one Astralane tip 
 
 ## Minimum tip
 
-| Tier | Minimum tip | In lamports |
+| Tier | Default minimum tip | In lamports |
 | --- | --- | --- |
 | Free | 0.001 SOL | 1,000,000 |
 | VIP 1 | 0.0001 SOL | 100,000 |
 | VIP 2 | 0.0001 SOL | 100,000 |
 | VIP 3 | 0.00001 SOL | 10,000 |
 
-The minimum is a floor. Tips below it are rejected. A token tip counts at its SOL value, as described in [How token tips are valued](#how-token-tips-are-valued). How tiers are earned is in [Pricing and limits](../help/pricing-and-limits.md).
-
-<!-- review: Confirm these minimums and add the exact error a user gets below them. All current code samples and the MCP use 10,000 lamports, which is the VIP 3 minimum only. -->
+These are the defaults; a custom minimum can be agreed per key. The minimum is a floor. Over JSON-RPC a tip below it is rejected with `-32600` `Invalid Request: min tip not paid for any asset`; over plain text and binary you get HTTP `400` with the same message; over QUIC and WebSocket the transaction is dropped. Token tips have their own minimums, described in [Minimums for token tips](#minimums-for-token-tips). How tiers are earned is in [Pricing and limits](../help/pricing-and-limits.md).
 
 ## Tip in WSOL, USDC or USDT
 
@@ -30,6 +28,14 @@ A token tip goes to the tip wallet's Associated Token Account (ATA) for that tok
 2. Derive that wallet's ATA for the token you are tipping in.
 3. Add an SPL Token `Transfer` or `TransferChecked` from your own token account to that ATA, in the same transaction.
 4. Send the transaction through your usual Iris endpoint.
+
+Iris only counts a token tip that:
+
+* uses the SPL Token program. Token-2022 transfers are not counted.
+* goes to the tip wallet's associated token account, not any other token account it owns.
+* is a top-level instruction in your transaction. A transfer made inside another program's instruction is not seen.
+
+A `TransferChecked` with the wrong mint or decimals rejects the whole transaction.
 
 Amounts are in the token's smallest unit:
 
@@ -56,13 +62,48 @@ const tipAta = getAssociatedTokenAddressSync(USDC, TIP_WALLET);       // the tip
 const tipIx = createTransferCheckedInstruction(fromAta, USDC, tipAta, payer.publicKey, TIP_AMOUNT, 6);
 ```
 
-<!-- review: All 51 tip-wallet token accounts (17 wallets x WSOL, USDC and USDT) were checked on-chain on 6 Nov 2026, and every one exists. We can share the full list of 51 addresses if you would rather users paste them than derive them. -->
+### Tip wallet token accounts
+
+Instead of deriving it, you can copy the token account for each tip wallet from this table. These are the SPL Token associated token accounts Iris counts.
+
+| Tip wallet | WSOL | USDC | USDT |
+| --- | --- | --- | --- |
+| `astrazznxsGUhWShqgNtAdfrzP2G83DzcWVJDxwV9bF` | `G2cGwrLbiXA4gKsGuUbsM8ZwSQPRe1uv5BxmyTqZpLgA` | `4KUiw9ct6H2DtjQ65wjPh9EuAkRjT5ABohRJ6WK8VfTa` | `D2T61t56rwJos3oCxHmcQYQdnES4FfR2KYYQsGPSfHb1` |
+| `astra4uejePWneqNaJKuFFA8oonqCE1sqF6b45kDMZm` | `HiTFQfXAyB5WXhWVsX6BvjBUxUji2146uHftjU3dZQLe` | `7mPs8UuZDpDxg7BaCLwj1ccfsFAsjk9eSi41XCx54PEZ` | `7gtf2Ay4tkf15fh1vjU642X6EJynFY3Wcon6asXWyqoC` |
+| `astra9xWY93QyfG6yM8zwsKsRodscjQ2uU2HKNL5prk` | `98HqoC8NBgzfti64VAv3AjSr4AEypUxmqGg96rcZh86T` | `GhWtEHgZbBj9muW5FXmopMEx4WKTzauBrTFh9iqYarMU` | `6rZCXMmPhu2WNrgZVVhicUkG6Kiz2vaDYpFuif114dcH` |
+| `astraRVUuTHjpwEVvNBeQEgwYx9w9CFyfxjYoobCZhL` | `2PjGQYeJDqND2XTJWgySzZGJgjL4yx2mPECq1HdgHGjC` | `6XMcsS7UABKGo9vHNtkpvo7e6ChzaPhHgnAPjqkt8RTB` | `hexmWc82YMrZMwy4fKngU7eUASvydt6eqHpVnMRd5go` |
+| `astraEJ2fEj8Xmy6KLG7B3VfbKfsHXhHrNdCQx7iGJK` | `Hw96uLDaPDgcYCYYUsL3VfYB2MTZiDQ1ormz119aaJUv` | `H5Sisc8zTsjU23iVMQT2aBoYB6Ls5pV2UozNZJuH3Hvz` | `Dx9xTR28x4jri6uiFkxDNHRJejKogmdHLfUjLByvekMQ` |
+| `astraubkDw81n4LuutzSQ8uzHCv4BhPVhfvTcYv8SKC` | `nEsxXB1xt3x2W35jQF6E7QGKGfmrKFcv6YYnEsBacmh` | `Hc158Ed7sRyrXeudxAWd7f2GE35QyPMsWTGCjd8smm96` | `DmAK8dVph1Wz4T5UMRyw7WhPrjWmnjZNFzibF4HhuGi2` |
+| `astraZW5GLFefxNPAatceHhYjfA1ciq9gvfEg2S47xk` | `HkNkNrcLLbXPVwNDZVixWD38cVt98exLFkftSdMXzmNJ` | `3ufjLLUCmtpkLi2Mx12z7z7WYX2TomFZ5WstKY6RKF5b` | `3Hgem8S9FGDojRoYpCL3Pd23NKX7MGm8sZU4Y3gM2XJP` |
+| `astrawVNP4xDBKT7rAdxrLYiTSTdqtUr63fSMduivXK` | `EwLVD3YDzLg7idccmgzqLc26rDYrvyhWf9jEkKgtEjRU` | `DutwtCXhneSszhdanitiiXcmFsH5mMwJHRYphBjumRtd` | `4DwbWTMAdD4f9P3yvXgDe8i1A6eJSH64jia4nVgwe4fR` |
+| `AstrA1ejL4UeXC2SBP4cpeEmtcFPZVLxx3XGKXyCW6to` | `G4TKzDPGZyHZT48TRALCQzwAYRmuefZ8KmKQmDL4KsfG` | `CQo8HPMSVepBKW1aNXjUGepzxYqG1zLXZUJV3rHv21rd` | `6qRj58LBdhCYfemhk7BYBFYXVyS3BGf64w1HLb31MTFm` |
+| `AsTra79FET4aCKWspPqeSFvjJNyp96SvAnrmyAxqg5b7` | `A6nT74ZuHiwEhCuHgDvtUJtaspzcvC1Xo39XmD79xTdx` | `iwFZ3MFrtcMYL7oQrfPVRPaLoFyZ7byohdfsxWKktrq` | `Zev1Mkw2tWs7NVw36nCRy4tF3MS7fo5PyuqMqatph9V` |
+| `AstrABAu8CBTyuPXpV4eSCJ5fePEPnxN8NqBaPKQ9fHR` | `EabPzKurLvdKzQj8ffmgRga6qPDTd5hv34L7Mnb6URwq` | `G9hTY51eBbQ6aM15Mzs6LUmBTXB7jo5NQNPnzFKcKoQS` | `1adSMs4kQKrzR5y2EZVJ7rJfzmwKj4AGN3VPoTL6qer` |
+| `AsTRADtvb6tTmrsqULQ9Wji9PigDMjhfEMza6zkynEvV` | `3qoDx124YVLcMnbXSGc5otahqcxNBeX1AL2KKcepmzVj` | `2rEjmAQYCZdXTLrhxDdMqMZVvaREcju7SqvNoT6FstRy` | `4v54FBbHBaDtc4XzKpXpTaaoBuUgWUqr7VTxL8bMquyT` |
+| `AsTRAEoyMofR3vUPpf9k68Gsfb6ymTZttEtsAbv8Bk4d` | `EcUGMgQLYHxBvBKnJLBCPG3no6ANnxbTbJY974PdyHA4` | `7AkKb6Cd3HbnTxKAEHv8JS7rxMykmnJZvvH7CxgHurKz` | `8hKuRBtyXXFdTUE11exZVizBdLkJemKGdRSt2sX9foDu` |
+| `AStrAJv2RN2hKCHxwUMtqmSxgdcNZbihCwc1mCSnG83W` | `4Sk3Xs6j6fC3VQwd53kgK68G4DHDTyjPJSY4YYTRCeEL` | `GSfxtoF6kvbMf1GtRqsQ3gPQE7BQrWQktL1Xun5PZWR2` | `HkogeeusKwb17G8mNCW25iCi7Ceuf9UNUh7yMf8GKhuw` |
+| `Astran35aiQUF57XZsmkWMtNCtXGLzs8upfiqXxth2bz` | `BUSK5KAHj776qiRfoqACqvKiGBhKYZCHKPnAs4zo8N5e` | `5THHwZ1SvbqsDHFEPuSkWcFYSTFn8YdfzA7Q6J7CErsu` | `68yAeqd7SmtXwvEJ6B11puy3cYF53h7UvdT9tuBZddrJ` |
+| `AStRAnpi6kFrKypragExgeRoJ1QnKH7pbSjLAKQVWUum` | `92A4xc3sDKKakpDDPeiQrLqbchpRRgdA45DBwZbTTfqi` | `2M4HQPyqf2vTPTPYXsTjN12c853g3wDohX2vyCvP7Kbn` | `ECht2uD6cVC6MkDd3Gp2Whm3ac3pshQmmVMxxgAnsqwK` |
+| `ASTRaoF93eYt73TYvwtsv6fMWHWbGmMUZfVZPo3CRU9C` | `2bQbSyQUnecPHhUvpNkbTGdFMSQCd6xsvaXDeq74sy5D` | `eMdXDFvUkQPHGxQ6CREaTTX6KzyyRxzNVkjvcCDqPoJ` | `4LoX8QJ1Zgca4yfJo5wkE4cM8bZQvcvBTavt259tR6H4` |
+
+## Minimums for token tips
+
+Each asset is checked against its own minimum. A transaction passes if any one of them is met:
+
+| Asset | Minimum |
+| --- | --- |
+| SOL | Your tier's minimum |
+| WSOL | Your tier's minimum, counted 1:1 with SOL |
+| USDC | 0.1 USDC (`100,000`) unless agreed otherwise |
+| USDT | 0.1 USDT (`100,000`) unless agreed otherwise |
+
+Amounts in different assets are not added together. Half the minimum in SOL plus half in WSOL does not pass.
 
 ## How token tips are valued
 
-WSOL counts 1:1 with SOL. USDC and USDT are converted to their SOL value at a cached market price, and Iris uses that value both to check your tier's minimum and to route the transaction. Because the price moves, tip a little above your minimum rather than exactly at it.
+For routing, Iris converts USDC and USDT tips to their SOL value at a market price refreshed about every minute. WSOL counts 1:1 with SOL. The SOL value decides which routes a transaction can use; it does not change the minimums above.
 
-<!-- review: How often is the cached price refreshed? Do token tips count toward the VIP tiers (tips over 7 days) and toward tip refunds at their SOL value? Can a token tip be registered through ShredPay? -->
+Token tips count toward your VIP tier. They are not refunded: [tip refunds](tip-refunds.md) are calculated on SOL tips only. ShredPay and PostpackPay only register SOL tips, and do not support Address Lookup Tables.
 
 ## Tip accounts in an Address Lookup Table
 
@@ -70,7 +111,7 @@ In a v0 transaction, the tip account can come from an Address Lookup Table (ALT)
 
 This saves space when your transaction already uses an ALT, for example for a swap's accounts. The tip account then takes a 1-byte index instead of a 32-byte address. Since you rotate tip wallets, add every wallet you rotate through, or its token accounts, to the table.
 
-<!-- review: Does ALT support cover v1 transactions as well as v0? -->
+If Iris cannot resolve the table, the tip is not counted and the transaction fails the minimum check. v1 transactions have no lookup tables, so list the tip account directly.
 
 ## How much to tip
 
@@ -112,9 +153,17 @@ AStRAnpi6kFrKypragExgeRoJ1QnKH7pbSjLAKQVWUum,
 ASTRaoF93eYt73TYvwtsv6fMWHWbGmMUZfVZPo3CRU9C
 ```
 
-Shreds and postpacks use their own tip wallets, listed on [Shreds](../data-streams/shreds.md) and [Postpacks](../data-streams/postpacks.md).
+To fetch the current list instead of hard-coding it, call `getTipWallets`. No API key is needed:
 
-<!-- review: Today three pages give three different rotation rules (every send, by region, weighted by write-lock contention). This page keeps one. A call that returns the current wallets would stop bots hard-coding this list. -->
+```bash
+curl -s -X POST https://api.gateway.astralane.io/public-api \
+  -H 'content-type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"getTipWallets"}'
+```
+
+It returns the wallet addresses as an array in `result`.
+
+Shreds and postpacks use their own tip wallets, listed on [Shreds](../data-streams/shreds.md) and [Postpacks](../data-streams/postpacks.md).
 
 ## Tip or priority fee
 

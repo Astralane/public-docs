@@ -15,7 +15,7 @@ Send up to **4 transactions** in a single atomic bundle. These transactions are 
 
 #### Bundle Usage Guidelines
 
-Please use `sendBundle` only when you need atomic execution of multiple transactions.
+Please use `sendBundle` only when you need atomic execution of multiple transactions. Bundles are enabled per API key: see [Access and support](../start-here/access-and-support.md).
 
 * We recommend maintaining a bundle success rate of around 15–20%, as processing unsuccessful bundles is costly for us to support.
 * Bundle access may be temporarily disabled in cases of extremely low success rates if you haven’t received explicit approval from us to use bundles.
@@ -27,7 +27,7 @@ Please use `sendBundle` only when you need atomic execution of multiple transact
 {% tabs %}
 {% tab title="Rust" %}
 <pre class="language-rust"><code class="lang-rust">const TIP: Pubkey = pubkey!("astra4uejePWneqNaJKuFFA8oonqCE1sqF6b45kDMZm"); // Use tip wallet depending on region of access
-const MIN_TIP_AMOUNT: u64 = 10000; // added for spam prevention
+const MIN_TIP_AMOUNT: u64 = 1_000_000; // 0.001 SOL, the free-tier minimum
 
 <strong>async fn send_bundle(
 </strong>    ixs: &#x26;mut Vec&#x3C;Instruction>,
@@ -39,7 +39,7 @@ const MIN_TIP_AMOUNT: u64 = 10000; // added for spam prevention
     let tip_ix = system_instruction::transfer(&#x26;signer.pubkey(), &#x26;TIP, MIN_TIP_AMOUNT);
     ixs.push(tip_ix);
     let tx = Transaction::new_signed_with_payer(ixs, Some(&#x26;signer.pubkey()), &#x26;[signer], blockhash);
-    let encoded_tx = base64::prelude::BASE64_STANDARD.encode(&#x26;bincode::serialize(tx).unwrap());
+    let encoded_tx = base64::prelude::BASE64_STANDARD.encode(&#x26;bincode::serialize(&#x26;tx).unwrap());
     let response = client
         .post(url)
         .header("api_key", "xxx")
@@ -101,7 +101,7 @@ func main() {
 	tx, err := solana.NewTransaction(
 		[]solana.Instruction{
 			system.NewTransferInstruction(
-				200_000,
+				1_000_000, // 0.001 SOL, the free-tier minimum
 				signer.PublicKey(),
 				astralaneTipAddress,
 			).Build(),

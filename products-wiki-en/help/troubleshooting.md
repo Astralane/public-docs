@@ -23,12 +23,11 @@ Check these in order. Most problems are the first three.
 1. **Tip below your tier's minimum.** It is rejected. The minimum on the free tier is 0.001 SOL. See [Tips and fees](../send-transactions/tips-and-fees.md).
 2. **Tip wallet contention.** Many senders tipping the same wallet lock it, and your transaction waits. Use a different wallet for each send.
 3. **Blockhash too old.** Fetch a fresh blockhash right before signing.
-4. **Rate limit.** Over JSON-RPC you get HTTP `429`. Over QUIC and WebSocket the extra transactions are dropped without an error. Compare your send rate with your tier's TPS in [Pricing and limits](../help/pricing-and-limits.md).
-5. **Throttled for a low landing rate.** If almost none of your transactions land, Iris lowers your limits for a while. The portal shows your status.
+4. **Rate limit, or method not enabled.** Over JSON-RPC you get HTTP `429`, or `401` if the method is not enabled on your key. Over QUIC and WebSocket the extra transactions are dropped without an error. Compare your send rate with your tier's TPS in [Pricing and limits](../help/pricing-and-limits.md).
+5. **Throttled for a low landing rate.** If almost none of your transactions land, the Astralane team may lower your limits for a while. The portal shows your status.
 6. **Priority fee too low.** Leaders that do not run Jito weigh the priority fee, not the tip. Set a normal compute unit price, or use [sendIdeal](../send-transactions/send-ideal.md).
 7. **Bundle reverted.** If one transaction in a bundle fails, none of them land. Simulate each transaction first.
-
-<!-- review: Engineering to confirm the order and add any cause specific to Iris, for example what happens when a leader is not reachable. A status lookup by signature would replace most of this checklist. -->
+8. **Same transaction resent.** Iris returns the signature again but does not forward a transaction it has already seen. To retry, sign a new transaction with a fresh blockhash.
 
 ## Testing Astralane against another sender
 

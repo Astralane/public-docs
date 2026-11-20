@@ -10,7 +10,7 @@ Access is currently limited to invited users. Please create a ticket on Discord 
 
 sendGhostTransaction allows you to submit a Solana transaction where the tip is supplied out of band, separately from the transaction itself.
 
-Unlike a standard [sendTransaction](./#sendtransaction), the transaction need not contain a transfer to any one of [Astralane's tip wallets](../endpoints-and-configs/). Instead, the tip is supplied through a parameter while making the sendGhostTransaction request to one of our [endpoints](../endpoints-and-configs/).
+Unlike a standard [sendTransaction](../api-reference/sendtransaction.md), the transaction must not contain a transfer to any of [Astralane's tip wallets](tips-and-fees.md#tip-wallets). Instead, the tip is supplied through a parameter while making the sendGhostTransaction request to one of our [endpoints](regions-and-endpoints.md).
 
 > Key points:
 >

@@ -69,7 +69,7 @@ client.close().await;
 | Max connections per API key           | 10         | Create multiple client instances for more connections                 |
 | Max concurrent streams per connection | 64         | Streams beyond this limit will block until a slot frees up            |
 | Stream read timeout                   | 750 ms     | Server closes the stream if transaction bytes aren't received in time |
-| Max transaction size                  | 1232 bytes | Standard Solana transaction size limit                                |
+| Max transaction size                  | 1232 bytes | 4096 bytes for v1 transactions                                        |
 | Idle timeout                          | 30 s       | Connection closes if no activity; client sends keep-alive every 25s   |
 
 ***

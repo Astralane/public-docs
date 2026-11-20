@@ -7,24 +7,20 @@ icon: shield-halved
 
 MEV protection is off by default.
 
-<!-- review: The current docs never say what mev-protect does. Engineering to fill the next section: which routes are skipped, what it costs in speed or landing rate, and whether it is a guarantee or a reduction. -->
-
 ## What it does
 
-{% hint style="info" %}
-Draft, for engineering to complete: which routes Iris skips when MEV protection is on, what that costs in speed or landing rate, and whether it removes sandwich risk or only reduces it.
-{% endhint %}
+MEV protection prevents toxic MEV, such as sandwiching.
 
 ## Turn it on
 
 | Transport | How |
 | --- | --- |
-| JSON-RPC, plain text, binary | Add `mev-protect=true` to the URL |
+| JSON-RPC, plain text, binary | Add `mev-protect=true` to the URL. `sendBundle` and `sendBatch` ignore it: use the request option below |
 | JSON-RPC, per request | Pass `{ "mevProtect": true }` as the third parameter of `sendTransaction`, or inside the options of `sendBundle` and `sendBatch` |
 | QUIC | Connect to port `9000` instead of `7000` |
 | WebSocket | Connect to the `/mev-protect` path instead of `/iris` |
 
-<!-- review: If the URL parameter and the request parameter disagree, which one wins? -->
+If the URL and the request disagree, the request wins, including `"mevProtect": false`. On QUIC and WebSocket, protection is set by the port or path, not per transaction.
 
 ## Extra protection for bundles
 

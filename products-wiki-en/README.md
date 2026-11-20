@@ -7,8 +7,6 @@ icon: house
 
 Astralane sends Solana transactions to the current leader over staked connections, and streams block data before most of the network sees it. It is built for trading firms, market makers, searchers and trading apps.
 
-<!-- review: The current page promises "global RPC and indexed data". No other page offers that, so it is left out until there is a page for it. -->
-
 ## Start here
 
 {% content-ref url="start-here/quickstart.md" %}

@@ -9,19 +9,19 @@ icon: key
 
 | Feature | Access |
 | --- | --- |
-| sendTransaction over JSON-RPC, plain text and binary | Straight away |
-| QUIC and WebSocket | Straight away, on every tier |
-| sendBundle | Every tier, at the tier's bundle limit |
+| sendTransaction and sendIdeal over JSON-RPC, plain text and binary | Straight away, at 5 TPS |
 | Tip stream | No key needed |
 | Shreds | Through the portal, once your tips reach a shred tier |
 | Astralane MCP | No key needed |
 
-<!-- review: The fee tiers table gives the free tier 0 bundle TPS, while its FAQ says bundles work on the free tier. Confirm which is right before publishing this row. -->
+Everything else is switched off on a new key and is enabled per key: see below. Over HTTP, calling a method that is not enabled returns `401`; over QUIC and WebSocket the transactions are dropped.
 
 ## What needs approval
 
 | Feature | How to ask | What to include |
 | --- | --- | --- |
+| sendBundle | Discord ticket | Expected volume and bundle success rate |
+| QUIC and WebSocket | Discord ticket | Expected volume and region |
 | Ghost transactions | Discord ticket or Telegram | Expected volume |
 | Postpacks | Discord ticket | Your API key and region |
 | Decoded shreds | Discord ticket | Region |
@@ -29,7 +29,7 @@ icon: key
 | Tip refunds | Discord ticket | Your API key |
 | Custom limits, private tip wallets, colocation | Discord or Telegram | Volume and current tier |
 
-<!-- review: Add how long each approval usually takes. -->
+The Astralane team reviews and approves each request.
 
 ## Where to ask
 

@@ -9,9 +9,9 @@ Astralane charges through tips, not monthly fees. You can tip in SOL, WSOL, USDC
 
 ## Iris (sending)
 
-| Tier | Tips in the last 7 days | Minimum tip | Single-transaction methods | sendBundle |
+| Tier | Tips in the last 7 days | Default minimum tip | Single-transaction methods | sendBundle |
 | --- | --- | --- | --- | --- |
-| Free | Under 4 SOL | 0.001 SOL | 5 TPS | 0 TPS |
+| Free | Under 4 SOL | 0.001 SOL | 5 TPS | Off, on request |
 | VIP 1 | 4 SOL | 0.0001 SOL | 20 TPS | 5 TPS |
 | VIP 2 | 5 SOL | 0.0001 SOL | 40 TPS | 10 TPS |
 | VIP 3 | 8 SOL | 0.00001 SOL | 80 TPS | 20 TPS |
@@ -19,15 +19,12 @@ Astralane charges through tips, not monthly fees. You can tip in SOL, WSOL, USDC
 * Tiers are checked every hour. An upgrade applies within the hour.
 * A downgrade waits 7 days, then moves down one tier at a time.
 * To upgrade now, use **Upgrade API key** in the [portal](https://portal.astralane.io) and pay the tier's threshold in tips.
-* Every tier gets the same routing priority. Higher tiers get lower minimums and higher limits.
-
-<!-- review: VIP 1 moved from 3 SOL to 4 SOL between 15 and 19 Oct; add it to the changelog. The free-tier bundle limit (0 TPS) contradicts the FAQ that says bundles work on the free tier. -->
+* Higher tiers get lower minimums and higher limits. These are defaults; custom minimums and limits can be agreed per key.
+* The minimums are for SOL and WSOL. USDC and USDT tips have their own minimum: see [Tips and fees](../send-transactions/tips-and-fees.md#minimums-for-token-tips).
 
 ### When you get throttled
 
-If very few of your transactions land, for example 1% over the last hour, Iris lowers your rate limits and takes you off some routes until your landing rate recovers. Your current tier and status are in the portal.
-
-<!-- review: Confirm who this applies to (the FAQ says the free tier only), the exact trigger, and how long it lasts. -->
+If very few of your transactions land, for example 1% over the last hour, the Astralane team may lower your rate limits and take you off some routes until your landing rate recovers. Your current tier and status are in the portal.
 
 ## Shreds
 
@@ -45,8 +42,6 @@ Tips count once you register them through ShredPay. Downgrades wait 24 hours and
 | Decoded shreds | Free for tier-2 shred users (0.5 SOL of registered tips in 24 hours) |
 | Postpacks | Tips registered through PostpackPay |
 
-<!-- review: Decoded shreds left beta on 25 Oct and are free for tier-2 shred users. There is no free trial (the one-day shreds trial was removed on 11 Nov 2026). State the postpack tip amount. -->
-
 ## Connection limits
 
 | Service | Limit |
@@ -56,7 +51,8 @@ Tips count once you register them through ShredPay. Downgrades wait 24 hours and
 | Tip stream | 10 requests per second per IP, 2 WebSocket connections per IP |
 | sendBundle | Up to 4 transactions per bundle |
 | sendBatch | Up to 25 transactions per request |
-| Transaction size | 1,232 bytes |
+| Transaction size | 1,232 bytes for legacy and v0 transactions, 4,096 bytes for v1 |
+
 
 ## Custom terms
 

@@ -13,8 +13,6 @@ This guide sends one tipped transaction through Iris over JSON-RPC and checks th
 
 Create an account at [portal.astralane.io](https://portal.astralane.io) and copy your API key. A new key starts on the free tier: 5 transactions per second and a minimum tip of 0.001 SOL.
 
-<!-- review: Confirm the free-tier numbers. The fee tiers page says 0.001 SOL; older code samples, the MCP and the Mandarin page say 10,000 lamports. -->
-
 {% hint style="info" %}
 Keep the key out of code you commit. The examples read it from `ASTRALANE_API_KEY`.
 {% endhint %}
@@ -87,6 +85,73 @@ const { result: signature, error } = await res.json();
 ```
 {% endtab %}
 
+{% tab title="Rust" %}
+```rust
+use base64::{engine::general_purpose::STANDARD, Engine};
+use serde_json::{json, Value};
+
+// `tx` is your signed Transaction or VersionedTransaction
+let url = format!(
+    "https://fr.gateway.astralane.io/iris?api-key={}",
+    std::env::var("ASTRALANE_API_KEY")?
+);
+let body = json!({
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "sendTransaction",
+    "params": [STANDARD.encode(bincode::serialize(&tx)?), { "encoding": "base64", "skipPreflight": true }],
+});
+let res: Value = reqwest::Client::new().post(url).json(&body).send().await?.json().await?;
+let (signature, error) = (res["result"].as_str(), res.get("error"));
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+import base64, os, requests
+
+# `tx` is your signed solders Transaction or VersionedTransaction
+url = f"https://fr.gateway.astralane.io/iris?api-key={os.environ['ASTRALANE_API_KEY']}"
+res = requests.post(url, json={
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "sendTransaction",
+    "params": [base64.b64encode(bytes(tx)).decode(), {"encoding": "base64", "skipPreflight": True}],
+}).json()
+signature, error = res.get("result"), res.get("error")
+```
+{% endtab %}
+
+{% tab title="Go" %}
+```go
+// `tx` is your signed *solana.Transaction (github.com/gagliardetto/solana-go)
+raw, err := tx.MarshalBinary()
+if err != nil {
+	log.Fatal(err)
+}
+body, _ := json.Marshal(map[string]any{
+	"jsonrpc": "2.0",
+	"id":      1,
+	"method":  "sendTransaction",
+	"params":  []any{base64.StdEncoding.EncodeToString(raw), map[string]any{"encoding": "base64", "skipPreflight": true}},
+})
+url := "https://fr.gateway.astralane.io/iris?api-key=" + os.Getenv("ASTRALANE_API_KEY")
+res, err := http.Post(url, "application/json", bytes.NewReader(body))
+if err != nil {
+	log.Fatal(err)
+}
+defer res.Body.Close()
+var out struct {
+	Result string          `json:"result"`
+	Error  json.RawMessage `json:"error"`
+}
+if err := json.NewDecoder(res.Body).Decode(&out); err != nil {
+	log.Fatal(err)
+}
+signature := out.Result
+```
+{% endtab %}
+
 {% tab title="curl" %}
 ```bash
 curl "https://fr.gateway.astralane.io/iris?api-key=$ASTRALANE_API_KEY" \
@@ -99,7 +164,6 @@ curl "https://fr.gateway.astralane.io/iris?api-key=$ASTRALANE_API_KEY" \
 
 A `result` is the transaction signature. It means Iris accepted the transaction, not that it landed.
 
-<!-- review: Rust, Python and Go tabs to be added from the searcher-examples repo, built in CI so they cannot drift from the API. -->
 {% endstep %}
 
 {% step %}

@@ -12,6 +12,7 @@
 * [MEV protection](send-transactions/mev-protection.md)
 * [Bundles](send-transactions/bundles.md)
 * [sendIdeal and durable nonces](send-transactions/send-ideal.md)
+* [sendBatch](send-transactions/send-batch.md)
 * [Ghost transactions](send-transactions/ghost-transactions.md)
 * [QUIC](send-transactions/quic.md)
 * [WebSocket](send-transactions/websocket.md)
